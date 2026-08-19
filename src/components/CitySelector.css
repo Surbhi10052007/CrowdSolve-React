@@ -1,0 +1,98 @@
+/* ─── CitySelector (Light Theme) ─── */
+.city-selector {
+  position: relative;
+}
+
+.city-selector__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: 6px;
+  padding: 0.45rem 0.85rem;
+  color: var(--color-text-dark);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.city-selector__trigger:hover {
+  border-color: var(--color-lime);
+  background: var(--color-surface-hover);
+}
+
+.city-selector__arrow {
+  font-size: 0.7rem;
+  color: var(--color-muted-dark);
+  transition: transform 0.2s ease;
+}
+
+.city-selector__arrow.is-open {
+  transform: rotate(180deg);
+}
+
+/* Large variant (homepage) */
+.city-selector--large .city-selector__trigger {
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  background: var(--color-white);
+  color: var(--color-dark);
+  border: 2px solid var(--color-dark);
+  border-radius: 8px;
+}
+
+.city-selector--large .city-selector__trigger:hover {
+  border-color: var(--color-lime);
+  color: var(--color-lime-dim);
+}
+
+/* Dropdown panel */
+.city-selector__panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 200px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  z-index: 50;
+  padding: 0.4rem;
+  animation: fadeInUp 0.2s var(--ease-out);
+}
+
+.city-selector__list {
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.city-selector__option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color-text-dark);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.city-selector__option:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-lime-dim);
+}
+
+.city-selector__option.is-selected {
+  background: var(--color-lime-light);
+  color: var(--color-lime-dim);
+  font-weight: 700;
+}
