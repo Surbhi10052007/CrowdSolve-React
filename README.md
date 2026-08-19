@@ -1,4 +1,4 @@
-# FEE_3rdsem_project
+# CrowdSolve-React
 🌍 CrowdSolve AI
 Real Problems. Crowd-Powered Solutions.
 
