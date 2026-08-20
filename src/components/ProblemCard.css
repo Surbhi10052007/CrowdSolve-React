@@ -1,0 +1,111 @@
+/* ─── ProblemCard (Light Theme) ─── */
+.problem-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), border-color 0.25s ease;
+}
+
+.problem-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: #cbd5e1;
+}
+
+.problem-card__image-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.problem-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.problem-card:hover .problem-card__image {
+  transform: scale(1.04);
+}
+
+.problem-card__category {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--color-lime-dim);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+  padding: 0.25rem 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.problem-card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.problem-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-dark);
+}
+
+.problem-card__desc {
+  font-size: 0.88rem;
+  color: var(--color-muted-dark);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.problem-card__location {
+  font-size: 0.82rem;
+  color: var(--color-muted-dark);
+}
+
+.problem-card__meta {
+  font-size: 0.78rem;
+  color: var(--color-muted-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.problem-card__dot {
+  opacity: 0.4;
+}
+
+.problem-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.problem-card__link {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-lime-dim);
+  transition: color 0.15s ease;
+}
+
+.problem-card__link:hover {
+  color: var(--color-dark);
+}
