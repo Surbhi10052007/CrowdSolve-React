@@ -1,3 +1,5 @@
+// Problems.jsx — Problem listing page for Eval 1 (Light Theme).
+// Demonstrates: useState, search filter, category filter, status filter.
 
 import { useState } from "react";
 import ProblemList from "../components/ProblemList";
@@ -18,6 +20,7 @@ export default function Problems() {
   const [category, setCategory] = useState("All");
   const [status, setStatus] = useState("All");
 
+  // Filtering chain: city → search → category → status
   const cityProblems = problems.filter((p) => p.city === selectedCity);
 
   const searchedProblems = cityProblems.filter(

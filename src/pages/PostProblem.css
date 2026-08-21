@@ -1,0 +1,73 @@
+/* ─── PostProblem Page (Light Theme) ─── */
+.post-problem__header {
+  padding: 3.5rem 0 2.5rem;
+  background: var(--color-cream-2);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.post-problem__header h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  color: var(--color-dark);
+}
+
+.post-problem__subtitle {
+  font-size: 1rem;
+  color: var(--color-muted-dark);
+  margin-top: 0.6rem;
+}
+
+.post-problem__container {
+  max-width: 720px;
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.post-problem__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-problem__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.post-problem--success {
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--color-white);
+  color: var(--color-text-dark);
+  padding: 3rem 1.5rem;
+}
+
+.post-problem--success h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--color-lime);
+  margin-bottom: 0.8rem;
+}
+
+.post-problem--success p {
+  color: var(--color-muted-dark);
+  font-size: 1.05rem;
+}
+
+@media (max-width: 640px) {
+  .post-problem__row {
+    grid-template-columns: 1fr;
+  }
+  
+  .post-problem__container {
+    padding: 1.5rem;
+  }
+}

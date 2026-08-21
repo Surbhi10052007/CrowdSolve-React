@@ -1,0 +1,114 @@
+/* ─── Dashboard Page (Light Theme) ─── */
+.dashboard__header {
+  padding: 3.5rem 0 2.5rem;
+  background: var(--color-cream-2);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.dashboard__header h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  color: var(--color-dark);
+}
+
+.dashboard__level {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: var(--color-lime-light);
+  color: var(--color-lime-dim);
+  border-radius: 20px;
+}
+
+.dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.dashboard__stat {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard__stat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard__stat-value {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--color-dark);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.dashboard__stat-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-muted-dark);
+}
+
+.dashboard__activity h2 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+}
+
+.dashboard__empty {
+  color: var(--color-muted-dark);
+  font-size: 0.92rem;
+  padding: 1.5rem;
+  background: var(--color-cream-2);
+  border-radius: 8px;
+  border: 1px solid var(--color-border-light);
+}
+
+.dashboard__activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dashboard__activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.2rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.dashboard__activity-points {
+  font-weight: 700;
+  color: var(--color-lime-dim);
+  background: var(--color-lime-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .dashboard__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
