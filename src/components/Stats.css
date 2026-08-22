@@ -1,0 +1,114 @@
+/* ─── Stats Component (Light Theme) ─── */
+.stats-section {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  background: var(--color-white);
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.stats-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3rem;
+}
+
+.stats-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  color: var(--color-dark);
+  margin-bottom: 0.8rem;
+}
+
+.stats-subtitle {
+  font-size: 0.98rem;
+  color: var(--color-muted-dark);
+  line-height: 1.6;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: var(--color-cream-2);
+  border: 1px solid var(--color-border-light);
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-lime);
+  box-shadow: var(--shadow-md);
+  background: var(--color-white);
+}
+
+.stat-card__icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--color-lime-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.stat-card__icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.stat-card__body {
+  width: 100%;
+}
+
+.stat-card__value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 900;
+  color: var(--color-dark);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.stat-card__label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-dark-2);
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.01em;
+}
+
+.stat-card__desc {
+  font-size: 0.8rem;
+  color: var(--color-muted-dark);
+  line-height: 1.45;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 960px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
+}

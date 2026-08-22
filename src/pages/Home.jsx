@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import CitySelector from "../components/CitySelector";
 import ProblemList from "../components/ProblemList";
+import Stats from "../components/Stats";
 import { useCity } from "../hooks/useCity";
 import { useUserProblems } from "../hooks/useUserProblems";
 import { problems as mockProblems } from "../data/problems";
@@ -61,6 +62,9 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* ──── IMPACT STATS ──── */}
+      <Stats />
 
       {/* ──── HOW IT WORKS ──── */}
       <section id="how-it-works" className="section section--dark how-it-works">
