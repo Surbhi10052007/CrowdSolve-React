@@ -1,5 +1,5 @@
 // Navbar.jsx — Top navigation bar with logo, links, city selector,
-// responsive hamburger menu, and login/logout state.
+// responsive hamburger menu, and right-most login/register.
 
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -23,61 +23,117 @@ export default function Navbar() {
           CROWDSOLVE
         </Link>
 
-        {/* Navigation links — toggled on mobile via hamburger */}
+        {/* Navigation links — center */}
         <nav
           className={`navbar__links ${menuOpen ? "is-open" : ""}`}
           aria-label="Main navigation"
         >
-          <NavLink to="/problems" onClick={closeMenu} className="navbar__link">
+          <NavLink
+            to="/problems"
+            end
+            onClick={closeMenu}
+            className={({ isActive }) =>
+              `navbar__link ${isActive ? "navbar__link--active" : ""}`
+            }
+          >
             Problems
           </NavLink>
-          <NavLink to="/problems" onClick={closeMenu} className="navbar__link">
+          <a
+            href="/#how-it-works"
+            onClick={closeMenu}
+            className="navbar__link"
+          >
             Solutions
-          </NavLink>
-          <a href="/#how-it-works" onClick={closeMenu} className="navbar__link">
+          </a>
+          <a
+            href="/#how-it-works"
+            onClick={closeMenu}
+            className="navbar__link"
+          >
             How It Works
           </a>
-          <NavLink to="/problems" onClick={closeMenu} className="navbar__link">
+          <a
+            href="/#city-selector"
+            onClick={closeMenu}
+            className="navbar__link"
+          >
             Community
-          </NavLink>
+          </a>
 
           {/* City selector inline for mobile menu */}
           <div className="navbar__mobile-city">
             <CitySelector variant="compact" />
           </div>
 
-          {/* Auth links */}
-          {isLoggedIn ? (
-            <>
-              <NavLink to="/dashboard" onClick={closeMenu} className="navbar__link">
-                Dashboard ({currentUser.name.split(" ")[0]})
-              </NavLink>
-              <button
-                type="button"
-                className="navbar__link navbar__logout"
-                onClick={() => {
-                  logout();
-                  closeMenu();
-                }}
-              >
-                Logout
-              </button>
-            </>
-          ) : (
-            <NavLink to="/login" onClick={closeMenu} className="navbar__link">
-              Login
-            </NavLink>
-          )}
+          {/* Mobile-only Auth links */}
+          <div className="navbar__mobile-auth">
+            {isLoggedIn ? (
+              <>
+                <NavLink to="/dashboard" onClick={closeMenu} className="navbar__link">
+                  Dashboard ({currentUser.name ? currentUser.name.split(" ")[0] : "User"})
+                </NavLink>
+                <button
+                  type="button"
+                  className="navbar__link navbar__logout"
+                  onClick={() => {
+                    logout();
+                    closeMenu();
+                  }}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <div className="navbar__mobile-auth-links">
+                <NavLink to="/login" onClick={closeMenu} className="navbar__link navbar__auth-link">
+                  Login
+                </NavLink>
+                <NavLink to="/signup" onClick={closeMenu} className="navbar__link navbar__auth-link">
+                  Register
+                </NavLink>
+              </div>
+            )}
+          </div>
         </nav>
 
-        {/* Right side — city selector (desktop) + post button + hamburger */}
+        {/* Right side: City Selector + Post Button + Right-most Login/Register */}
         <div className="navbar__right">
           <div className="navbar__city-desktop">
             <CitySelector variant="compact" />
           </div>
+
           <Link to="/post" className="btn btn-primary navbar__post-btn">
             POST A PROBLEM +
           </Link>
+
+          {/* Right-most Auth Group */}
+          <div className="navbar__auth-desktop">
+            {isLoggedIn ? (
+              <div className="navbar__user-menu">
+                <NavLink to="/dashboard" className="navbar__auth-link navbar__auth-link--dashboard">
+                  Dashboard ({currentUser.name ? currentUser.name.split(" ")[0] : "User"})
+                </NavLink>
+                <button
+                  type="button"
+                  className="navbar__auth-link navbar__logout-btn"
+                  onClick={logout}
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className="navbar__guest-auth">
+                <NavLink to="/login" className="navbar__auth-link">
+                  Login
+                </NavLink>
+                <span className="navbar__auth-slash">/</span>
+                <NavLink to="/signup" className="navbar__auth-link">
+                  Register
+                </NavLink>
+              </div>
+            )}
+          </div>
+
           <button
             type="button"
             className="navbar__hamburger"
