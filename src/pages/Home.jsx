@@ -1,5 +1,5 @@
-// Home.jsx — Landing page for Eval 1 (Light Theme Prototype).
-// Demonstrates: Hero, City Selector, How-It-Works, and live city problems.
+// Home.jsx — Landing page for Eval 1 (Member 2).
+// Demonstrates: Hero, City Selector, Stats, How-It-Works, and live city problems.
 
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
@@ -19,7 +19,7 @@ export default function Home() {
   const problems = [...userProblems, ...mockProblems];
 
   // Filter problems for the selected city.
-  const cityProblems = problems.filter((p) => p.city === selectedCity);
+  const cityProblems = problems.filter((p) => p.city.toLowerCase() === selectedCity.toLowerCase());
 
   // Show at most 4 problems on the homepage preview.
   const previewProblems = cityProblems.slice(0, 4);
@@ -47,6 +47,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ──── LIVE IMPACT STATS ──── */}
+      <section className="section stats-container-section">
+        <div className="container">
+          <Stats cityFilter={selectedCity} />
+        </div>
+      </section>
+
       {/* ──── THE PROBLEM (editorial) ──── */}
       <section className="section problem-statement">
         <div className="container problem-statement__inner">
@@ -63,9 +70,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ──── IMPACT STATS ──── */}
-      <Stats />
-
       {/* ──── HOW IT WORKS ──── */}
       <section id="how-it-works" className="section section--dark how-it-works">
         <div className="container">
@@ -76,7 +80,7 @@ export default function Home() {
               className="how-it-works__image"
             />
             <div>
-              <p className="eyebrow">HOW CROWDSOLVE WORKS</p>
+              <p className="eyebrow eyebrow--light">HOW CROWDSOLVE WORKS</p>
               <h2 className="how-it-works__title">
                 TURNING COMPLAINTS
                 <br />
