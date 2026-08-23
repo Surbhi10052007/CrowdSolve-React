@@ -1,6 +1,12 @@
-// CommentSection.jsx — Comprehensive Civic Community Discussion & Action Forum.
-// Demonstrates: nested replies, categorized discussions, sentiment/reaction tags,
-// local search, dynamic sorting, civic moderation flags, and persistence.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: CommentSection.jsx
+ * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
+ * Description: Community discussion forum component supporting threaded comments, nested replies, and localStorage persistence.
+ * ====================================================================
+ */
 
 import { useState, useMemo } from "react";
 import "./CommentSection.css";

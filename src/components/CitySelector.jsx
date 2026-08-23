@@ -1,4 +1,13 @@
-// CitySelector.jsx — Dropdown to choose a city without search box for Eval 1.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: CitySelector.jsx
+ * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
+ * Description: Interactive city picker pill bar allowing quick city filtering with problem count badges.
+ * ====================================================================
+ */
+
 //
 // Has two visual variants:
 //   "compact" → small pill in the Navbar

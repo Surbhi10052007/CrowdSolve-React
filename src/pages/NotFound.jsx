@@ -1,5 +1,12 @@
-// NotFound.jsx — 404 page for unmatched routes.
-// Demonstrates: catch-all route, Link component.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: NotFound.jsx
+ * Contributor: Member 3 (Karan Kumar - Discovery & Authentication)
+ * Description: Custom 404 error page displayed when navigating to unknown routes with quick navigation back home.
+ * ====================================================================
+ */
 
 import { Link } from "react-router-dom";
 import "./NotFound.css";

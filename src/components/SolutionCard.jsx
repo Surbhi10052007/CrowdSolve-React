@@ -1,5 +1,12 @@
-// SolutionCard.jsx — Displays one community solution with vote buttons.
-// An optional "isTop" prop adds a highlighted badge.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: SolutionCard.jsx
+ * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
+ * Description: Card component for displaying community proposed solutions with upvote/downvote scoring, pros/cons, and author details.
+ * ====================================================================
+ */
 
 import VoteButton from "./VoteButton";
 import "./SolutionCard.css";

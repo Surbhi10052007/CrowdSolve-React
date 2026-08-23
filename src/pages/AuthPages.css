@@ -1,4 +1,11 @@
-/* ─── Auth Pages (Login & Signup - Light Theme) ─── */
+/* ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: AuthPages.css
+ * Contributor: Member 3 (Karan Kumar - Discovery & Authentication)
+ * Description: Styles for authentication forms (Login & Signup), input groups, submit buttons, and toggle links.
+ * ==================================================================== */
+
 .auth-page__container {
   display: flex;
   justify-content: center;

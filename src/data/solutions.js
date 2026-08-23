@@ -1,6 +1,12 @@
-// solutions.js — Mock solutions data.
-// Each solution belongs to one problem (via problemId).
-// Votes are starting numbers — VoteButton updates them in localStorage.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: solutions.js
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Seed dataset of proposed civic solutions with voting tallies, pros/cons, and helper methods.
+ * ====================================================================
+ */
 
 export const solutions = [
   // Problem 1: Pothole near Sector 17

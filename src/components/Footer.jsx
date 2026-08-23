@@ -1,4 +1,12 @@
-// Footer.jsx — Site footer with logo, navigation columns, and copyright.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Footer.jsx
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Global site footer with branding, quick links, category tags, and copyright info.
+ * ====================================================================
+ */
 
 import { Link } from "react-router-dom";
 import "./Footer.css";

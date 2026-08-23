@@ -1,4 +1,13 @@
-// problems.js — Mock database of community-reported problems.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: problems.js
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Seed dataset of civic problems categorized by city, tags, status, and helper search/filter methods.
+ * ====================================================================
+ */
+
 //
 // In a real app this would come from a server.  Here we use a plain
 // array of objects so the project can run entirely without a backend.

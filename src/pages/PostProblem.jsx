@@ -1,6 +1,12 @@
-// PostProblem.jsx — Form to submit a new community problem without photo upload for Eval 1.
-// Demonstrates: controlled form inputs, form validation, useState,
-// useNavigate, event handling (preventDefault).
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: PostProblem.jsx
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Interactive form allowing authenticated citizens to report and publish new civic problems.
+ * ====================================================================
+ */
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

@@ -1,5 +1,12 @@
-// Home.jsx — Landing page for Eval 1 (Member 2).
-// Demonstrates: Hero, City Selector, Stats, How-It-Works, and live city problems.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Home.jsx
+ * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
+ * Description: Landing page orchestrating Hero banner, City selector, Live Impact Stats, Problem preview, and How-It-Works.
+ * ====================================================================
+ */
 
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";

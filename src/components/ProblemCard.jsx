@@ -1,6 +1,12 @@
-// ProblemCard.jsx — Card component that displays one problem's summary.
-// Used in the problem listing grid.  Demonstrates: props, conditional
-// class names, Link for client-side navigation.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: ProblemCard.jsx
+ * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
+ * Description: Card component rendering individual problem preview with category tag, status badge, vote counter, and thumbnail.
+ * ====================================================================
+ */
 
 import { Link } from "react-router-dom";
 import "./ProblemCard.css";

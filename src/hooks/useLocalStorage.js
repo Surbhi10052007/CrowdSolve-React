@@ -1,5 +1,13 @@
-// useLocalStorage.js — Custom hook that works like useState but
-// persists the value to localStorage so it survives page refresh.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: useLocalStorage.js
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Custom reusable hook for synchronizing React state with browser localStorage.
+ * ====================================================================
+ */
+
 //
 // Usage:  const [value, setValue] = useLocalStorage("myKey", defaultVal);
 

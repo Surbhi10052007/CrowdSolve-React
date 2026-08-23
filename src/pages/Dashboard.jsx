@@ -1,5 +1,12 @@
-// Dashboard.jsx — User dashboard showing karma, stats, and activity log.
-// Protected by ProtectedRoute (user must be logged in).
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Dashboard.jsx
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: User profile dashboard showing karma points, reported problems, and submitted solutions.
+ * ====================================================================
+ */
 
 import { useAuth } from "../hooks/useAuth";
 import "./Dashboard.css";

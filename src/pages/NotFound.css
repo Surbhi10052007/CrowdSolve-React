@@ -1,4 +1,11 @@
-/* ─── NotFound Page (Light Theme) ─── */
+/* ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: NotFound.css
+ * Contributor: Member 3 (Karan Kumar - Discovery & Authentication)
+ * Description: Styles for 404 page centered error graphic, typography, and return home button.
+ * ==================================================================== */
+
 .not-found {
   min-height: 70vh;
   display: flex;

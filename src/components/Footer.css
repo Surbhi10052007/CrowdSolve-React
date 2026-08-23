@@ -1,4 +1,11 @@
-/* ─── Footer (Light Theme) ─── */
+/* ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Footer.css
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Styles for site-wide dark footer layout, links grid, and bottom legal banner.
+ * ==================================================================== */
+
 .footer {
   background: var(--color-cream-2);
   color: var(--color-text-dark);

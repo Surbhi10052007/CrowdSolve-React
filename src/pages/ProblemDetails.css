@@ -1,32 +1,43 @@
-/* ─── Problem Details (Light Theme) ─── */
+/* ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: ProblemDetails.css
+ * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
+ * Description: Two-column responsive layout styles for problem details page, sidebar facts card, and action buttons.
+ * ==================================================================== */
+
 .problem-details {
   padding-bottom: 5rem;
+  background-color: #f8fafc;
+  min-height: 100vh;
 }
 
 .problem-details__banner {
-  background: var(--color-white);
-  border-bottom: 1px solid var(--color-border-light);
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
   padding: 2.5rem 0 2rem;
   margin-bottom: 2.5rem;
 }
 
 .problem-details__breadcrumbs {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-muted-dark);
+  color: #64748b;
   margin-bottom: 1rem;
 }
 
 .problem-details__breadcrumbs a {
-  color: var(--color-muted-dark);
+  color: #16a34a;
   text-decoration: none;
-  transition: color 0.15s ease;
+  font-weight: 600;
 }
 
-.problem-details__breadcrumbs a:hover {
-  color: var(--color-dark);
+.problem-details__title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .problem-details__category {
@@ -35,25 +46,76 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-muted-dark);
+  color: #16a34a;
+  background: #f0fdf4;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid #bbf7d0;
   margin-bottom: 0.5rem;
 }
 
 .problem-details__title {
-  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 900;
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  letter-spacing: 0.03em;
-  color: var(--color-dark);
-  line-height: 1.1;
+  color: #0f172a;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.problem-details__banner-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.problem-details__endorse-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.problem-details__endorse-btn:hover {
+  background: #1e293b;
+}
+
+.problem-details__endorse-btn.is-endorsed {
+  background: #16a34a;
+}
+
+.problem-details__share-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.problem-details__share-btn:hover {
+  background: #f1f5f9;
 }
 
 /* Two-column layout */
 .problem-details__layout {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 320px;
   gap: 2.5rem;
   align-items: start;
+}
+
+.problem-details__main {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Image */
@@ -61,10 +123,10 @@
   width: 100%;
   max-height: 400px;
   overflow: hidden;
-  border-radius: var(--radius-md);
+  border-radius: 12px;
   margin-bottom: 1.5rem;
-  background-color: var(--color-bg-light);
-  border: 1px solid var(--color-border-light);
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
 }
 
 .problem-details__image {
@@ -78,31 +140,31 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.25rem;
-  font-size: 0.85rem;
-  color: var(--color-muted-dark);
+  font-size: 0.88rem;
+  color: #64748b;
   margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f5f9;
 }
 
 .problem-details__heading {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 1.3rem;
-  letter-spacing: 0.03em;
-  color: var(--color-dark);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
   margin-bottom: 0.75rem;
 }
 
 .problem-details__desc {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   line-height: 1.65;
-  color: var(--color-text-dark);
+  color: #334155;
   margin-bottom: 2rem;
 }
 
 .problem-details__divider {
   border: none;
-  border-top: 1px solid var(--color-border-light);
-  margin: 2.5rem 0;
+  border-top: 1px solid #e2e8f0;
+  margin: 2rem 0;
 }
 
 /* Solutions */
@@ -111,11 +173,10 @@
 }
 
 .problem-details__section-title {
-  font-family: var(--font-display);
+  font-size: 1.25rem;
   font-weight: 900;
-  font-size: 1.15rem;
-  letter-spacing: 0.04em;
-  color: var(--color-dark);
+  letter-spacing: -0.02em;
+  color: #0f172a;
 }
 
 .problem-details__solutions {
@@ -125,9 +186,14 @@
 }
 
 .problem-details__no-solutions {
-  font-size: 0.9rem;
-  color: var(--color-muted-dark);
+  font-size: 0.92rem;
+  color: #64748b;
   font-style: italic;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+  text-align: center;
 }
 
 /* Sidebar */
@@ -138,30 +204,30 @@
 }
 
 .problem-details__card {
-  background: var(--color-white);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
   padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .problem-details__card-title {
-  font-family: var(--font-display);
-  font-weight: 900;
   font-size: 0.85rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
-  color: var(--color-dark);
+  color: #0f172a;
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid #f1f5f9;
 }
 
 .problem-details__fact {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   padding: 0.5rem 0;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid #f1f5f9;
 }
 
 .problem-details__fact:last-child {
@@ -170,22 +236,36 @@
 }
 
 .problem-details__fact-label {
-  color: var(--color-muted-dark);
+  color: #64748b;
 }
 
 .problem-details__fact-val {
-  font-weight: 600;
-  color: var(--color-text-dark);
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.problem-details__tip-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #16a34a;
+  margin: 0 0 0.35rem;
+}
+
+.problem-details__tip-desc {
+  font-size: 0.82rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .problem-details__back {
   text-align: center;
-  font-size: 0.82rem;
-  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .problem-details__layout {
     grid-template-columns: 1fr;
   }

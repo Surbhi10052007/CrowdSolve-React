@@ -1,5 +1,13 @@
-// ProtectedRoute.jsx — Wrapper component that redirects to /login
-// if the user is not logged in.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: ProtectedRoute.jsx
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Higher-order route wrapper to guard private routes and redirect unauthenticated users to /login.
+ * ====================================================================
+ */
+
 //
 // Usage: <ProtectedRoute><Dashboard /></ProtectedRoute>
 // Demonstrates: Navigate, useLocation, conditional rendering.

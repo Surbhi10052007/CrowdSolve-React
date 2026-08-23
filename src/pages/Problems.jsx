@@ -1,5 +1,12 @@
-// Problems.jsx — Problem listing page for Eval 1 (Light Theme).
-// Demonstrates: useState, search filter, category filter, status filter.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Problems.jsx
+ * Contributor: Member 3 (Karan Kumar - Discovery & Authentication)
+ * Description: Explore problems page with real-time text search, category filtering, city dropdown, and sort ordering (popular, newest, most solutions).
+ * ====================================================================
+ */
 
 import { useState } from "react";
 import ProblemList from "../components/ProblemList";

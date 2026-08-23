@@ -1,4 +1,11 @@
-/* ─── Dashboard Page (Light Theme) ─── */
+/* ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Dashboard.css
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Styling for user dashboard profile card, karma badges, and activity tabs.
+ * ==================================================================== */
+
 .dashboard__header {
   padding: 3.5rem 0 2.5rem;
   background: var(--color-cream-2);

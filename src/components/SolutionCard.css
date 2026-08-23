@@ -1,4 +1,11 @@
-/* ─── SolutionCard (Light Theme) ─── */
+/* ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: SolutionCard.css
+ * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
+ * Description: Styles for solution cards, top solution highlight border, voting layout, and pros/cons tags.
+ * ==================================================================== */
+
 .solution-card {
   background: var(--color-white);
   border: 1px solid var(--color-border-light);

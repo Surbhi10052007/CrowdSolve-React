@@ -1,5 +1,12 @@
-// Login.jsx — Login form page.
-// Demonstrates: controlled inputs, form submission, useNavigate, useLocation.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Login.jsx
+ * Contributor: Member 3 (Karan Kumar - Discovery & Authentication)
+ * Description: Citizen authentication login page with email/password input, mock login support, and redirect on success.
+ * ====================================================================
+ */
 
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";

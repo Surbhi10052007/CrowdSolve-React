@@ -1,4 +1,13 @@
-// useCity.jsx — Context + hook for the currently selected city.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: useCity.jsx
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: City context provider and custom hook managing globally selected city filter.
+ * ====================================================================
+ */
+
 //
 // CityProvider wraps the app so that Navbar, Home, Problems, and
 // PostProblem can all read and update the same selected city.

@@ -1,4 +1,11 @@
-/* ─── CitySelector (Light Theme) ─── */
+/* ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: CitySelector.css
+ * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
+ * Description: Styles for horizontal scrollable city pills and active state indicators.
+ * ==================================================================== */
+
 .city-selector {
   position: relative;
 }

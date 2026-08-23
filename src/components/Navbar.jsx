@@ -1,5 +1,12 @@
-// Navbar.jsx — Top navigation bar with logo, links, city selector,
-// responsive hamburger menu, and right-most login/register.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Navbar.jsx
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Main navigation bar with brand logo, nav links, auth status indicator, and mobile menu toggle.
+ * ====================================================================
+ */
 
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";

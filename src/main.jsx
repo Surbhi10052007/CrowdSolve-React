@@ -1,5 +1,13 @@
-// Entry point — renders the <App /> component into the DOM.
-// StrictMode enables additional development warnings for React.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: main.jsx
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: React root entry point that mounts the App component into the DOM.
+ * ====================================================================
+ */
+
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";

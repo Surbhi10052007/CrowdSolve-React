@@ -1,4 +1,11 @@
-/* ─── Problems Page (Light Theme) ─── */
+/* ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Problems.css
+ * Contributor: Member 3 (Karan Kumar - Discovery & Authentication)
+ * Description: Styles for problems discovery page, filter sidebar/bar, search input, and count badges.
+ * ==================================================================== */
+
 .problems-page__header {
   padding: 3.5rem 0 2.5rem;
   background: var(--color-cream-2);

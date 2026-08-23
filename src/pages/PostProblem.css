@@ -1,4 +1,11 @@
-/* ─── PostProblem Page (Light Theme) ─── */
+/* ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: PostProblem.css
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Styling for new problem submission form, image input, and validation states.
+ * ==================================================================== */
+
 .post-problem__header {
   padding: 3.5rem 0 2.5rem;
   background: var(--color-cream-2);

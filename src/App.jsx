@@ -1,4 +1,13 @@
-// App.jsx — Root component that sets up routing and context providers.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: App.jsx
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Core application layout, React Router configuration, Auth and City context providers.
+ * ====================================================================
+ */
+
 //
 // CityProvider  → shares the currently selected city across all pages.
 // AuthProvider  → handles login / signup / logout and karma tracking.

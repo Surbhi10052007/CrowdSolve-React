@@ -1,4 +1,11 @@
-/* ─── Navbar (Light Theme) ─── */
+/* ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Navbar.css
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Styles for sticky header navigation bar, mobile menu drawer, and active navigation states.
+ * ==================================================================== */
+
 .navbar {
   position: sticky;
   top: 0;

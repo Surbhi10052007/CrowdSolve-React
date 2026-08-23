@@ -1,4 +1,13 @@
-// useAuth.jsx — Frontend-only authentication system.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: useAuth.jsx
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Authentication context provider and custom hook managing user login, signup, logout, and karma points.
+ * ====================================================================
+ */
+
 //
 // This is a DEMO auth system for a college project.
 // There is no real server or password hashing — everything lives

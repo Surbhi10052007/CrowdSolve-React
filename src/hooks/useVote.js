@@ -1,4 +1,13 @@
-// useVote.js — Handles upvote / downvote toggle for a single item.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: useVote.js
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Custom hook managing upvote/downvote actions and vote counts with localStorage persistence.
+ * ====================================================================
+ */
+
 //
 // Remembers the visitor's vote in localStorage so refreshing the
 // page doesn't let them vote twice.  Clicking the same button

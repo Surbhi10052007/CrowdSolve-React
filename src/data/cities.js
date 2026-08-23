@@ -1,4 +1,13 @@
-// cities.js — List of supported cities and their mock statistics.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: cities.js
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Seed data dictionary for supported Indian cities with metadata and helper functions.
+ * ====================================================================
+ */
+
 //
 // Every problem in problems.js has a "city" field that must match
 // one of these names.  The cityStats object provides mock numbers

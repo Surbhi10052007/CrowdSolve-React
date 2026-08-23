@@ -1,5 +1,12 @@
-// Signup.jsx — Registration form page.
-// Demonstrates: controlled inputs, basic validation, useNavigate.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Signup.jsx
+ * Contributor: Member 3 (Karan Kumar - Discovery & Authentication)
+ * Description: Citizen registration page with name, city picker, email, password fields, and validation.
+ * ====================================================================
+ */
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";

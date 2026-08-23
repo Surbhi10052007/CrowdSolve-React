@@ -1,4 +1,13 @@
-// useUserProblems.js — Stores problems posted via the "Post a Problem" form.
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: useUserProblems.js
+ * Contributor: Member 1 (Surbhi - Project Lead)
+ * Description: Custom hook for managing user-created civic problems stored in localStorage.
+ * ====================================================================
+ */
+
 //
 // Kept separate from the mock data in src/data/problems.js so
 // that file stays untouched. User-created problems are merged

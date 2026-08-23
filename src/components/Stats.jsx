@@ -1,3 +1,12 @@
+/**
+ * ====================================================================
+ * CROWDSOLVE - EVAL 1
+ * --------------------------------------------------------------------
+ * File: Stats.jsx
+ * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
+ * Description: Live civic impact statistics component calculating dynamic problem counts, resolved issues, solution proposals, and category breakdowns.
+ * ====================================================================
+ */
 
 import { useState } from "react";
 import { problems as mockProblems } from "../data/problems";
