@@ -1,13 +1,3 @@
-/* ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: Stats.css
- * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
- * Description: Styles for impact metrics grid, stat cards with hover lift, and category distribution progress bars.
- * ==================================================================== */
-
-/* Stats.css — Styling for the Civic Impact Stats Component */
-
 .stats-section {
   padding: 3rem 0 1.5rem;
   width: 100%;

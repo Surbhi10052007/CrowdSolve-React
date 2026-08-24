@@ -1,18 +1,3 @@
-/**
- * ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: CitySelector.jsx
- * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
- * Description: Interactive city picker pill bar allowing quick city filtering with problem count badges.
- * ====================================================================
- */
-
-//
-// Has two visual variants:
-//   "compact" → small pill in the Navbar
-//   "large"   → bigger block on the homepage
-
 import { useState, useRef, useEffect } from "react";
 import { cities } from "../data/cities";
 import { useCity } from "../hooks/useCity";
@@ -23,7 +8,6 @@ export default function CitySelector({ variant = "compact" }) {
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef(null);
 
-  // Close dropdown when the user clicks outside of it.
   useEffect(() => {
     function handleClickOutside(event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {

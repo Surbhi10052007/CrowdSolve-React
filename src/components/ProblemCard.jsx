@@ -1,13 +1,3 @@
-/**
- * ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: ProblemCard.jsx
- * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
- * Description: Card component rendering individual problem preview with category tag, status badge, vote counter, and thumbnail.
- * ====================================================================
- */
-
 import { Link } from "react-router-dom";
 import "./ProblemCard.css";
 
@@ -50,7 +40,6 @@ export default function ProblemCard({ problem }) {
   );
 }
 
-// Helper — turns "In Progress" into "in-progress" for CSS class.
 function statusClass(status) {
   return status.toLowerCase().replace(/\s+/g, "-");
 }

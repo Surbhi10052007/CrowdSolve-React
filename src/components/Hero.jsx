@@ -1,13 +1,3 @@
-/**
- * ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: Hero.jsx
- * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
- * Description: Hero banner with dynamic imagery, headline typography, CTA buttons, and quick stats ribbon.
- * ====================================================================
- */
-
 import { Link } from "react-router-dom";
 import "./Hero.css";
 

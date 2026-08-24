@@ -1,11 +1,3 @@
-/* ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: ProblemList.css
- * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
- * Description: Responsive grid layout rules for problem cards across desktop, tablet, and mobile viewports.
- * ==================================================================== */
-
 .problem-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

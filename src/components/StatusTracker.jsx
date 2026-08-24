@@ -1,13 +1,3 @@
-/**
- * ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: StatusTracker.jsx
- * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
- * Description: Visual progress stepper displaying lifecycle stages of a civic issue (Reported -> In Review -> In Progress -> Resolved).
- * ====================================================================
- */
-
 import "./StatusTracker.css";
 
 const STAGES = [
@@ -46,7 +36,6 @@ const STAGES = [
 export default function StatusTracker({ status = "Reported", updatedAt = "Recently" }) {
   const normalizedStatus = (status || "").toLowerCase().trim();
 
-  // Determine the active stage index
   let activeIndex = STAGES.findIndex((s) => s.key === normalizedStatus);
   if (activeIndex === -1) {
     if (normalizedStatus.includes("review") || normalizedStatus.includes("proposed")) activeIndex = 1;
@@ -69,7 +58,6 @@ export default function StatusTracker({ status = "Reported", updatedAt = "Recent
         </div>
       </div>
 
-      {/* Progress Line */}
       <div className="status-tracker__bar-wrapper">
         <div
           className="status-tracker__bar-fill"
@@ -106,7 +94,6 @@ export default function StatusTracker({ status = "Reported", updatedAt = "Recent
         </div>
       </div>
 
-      {/* Active Stage Callout Box */}
       <div className="status-tracker__callout">
         <div className="status-tracker__callout-icon">
           {STAGES[activeIndex].icon}

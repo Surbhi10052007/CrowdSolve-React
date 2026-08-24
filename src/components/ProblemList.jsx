@@ -1,13 +1,3 @@
-/**
- * ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: ProblemList.jsx
- * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
- * Description: Responsive grid container for displaying a list of problem cards with empty state fallback.
- * ====================================================================
- */
-
 import ProblemCard from "./ProblemCard";
 import "./ProblemList.css";
 

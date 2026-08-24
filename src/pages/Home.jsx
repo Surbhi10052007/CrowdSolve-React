@@ -1,13 +1,3 @@
-/**
- * ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: Home.jsx
- * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
- * Description: Landing page orchestrating Hero banner, City selector, Live Impact Stats, Problem preview, and How-It-Works.
- * ====================================================================
- */
-
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import CitySelector from "../components/CitySelector";
@@ -22,20 +12,16 @@ export default function Home() {
   const { selectedCity } = useCity();
   const { userProblems } = useUserProblems();
 
-  // Merge user-posted problems with mock data.
   const problems = [...userProblems, ...mockProblems];
 
-  // Filter problems for the selected city.
   const cityProblems = problems.filter((p) => p.city.toLowerCase() === selectedCity.toLowerCase());
 
-  // Show at most 4 problems on the homepage preview.
   const previewProblems = cityProblems.slice(0, 4);
 
   return (
     <div className="home-page">
       <Hero />
 
-      {/* ──── CITY SELECTOR ──── */}
       <section id="city-selector" className="section city-section">
         <div className="container city-section__inner">
           <div>
@@ -54,14 +40,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ──── LIVE IMPACT STATS ──── */}
       <section className="section stats-container-section">
         <div className="container">
           <Stats cityFilter={selectedCity} />
         </div>
       </section>
 
-      {/* ──── THE PROBLEM (editorial) ──── */}
       <section className="section problem-statement">
         <div className="container problem-statement__inner">
           <h2 className="problem-statement__title">
@@ -77,7 +61,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ──── HOW IT WORKS ──── */}
       <section id="how-it-works" className="section section--dark how-it-works">
         <div className="container">
           <div className="how-it-works__header">
@@ -117,7 +100,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ──── LIVE CITY PROBLEMS ──── */}
       <section className="section live-problems">
         <div className="container">
           <div className="live-problems__header">
@@ -140,7 +122,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ──── FINAL CTA (Light Theme) ──── */}
       <section className="section final-cta">
         <div className="container final-cta__box">
           <div className="final-cta__content">

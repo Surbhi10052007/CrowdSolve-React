@@ -1,13 +1,3 @@
-/**
- * ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: CommentSection.jsx
- * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
- * Description: Community discussion forum component supporting threaded comments, nested replies, and localStorage persistence.
- * ====================================================================
- */
-
 import { useState, useMemo } from "react";
 import "./CommentSection.css";
 
@@ -98,7 +88,6 @@ export default function CommentSection({ problemId, problemTitle }) {
   const [flaggedComments, setFlaggedComments] = useState({});
   const [submittedFeedback, setSubmittedFeedback] = useState(false);
 
-  // Add primary comment
   function handleAddComment(e) {
     e.preventDefault();
     if (!newComment.trim()) return;
@@ -125,7 +114,6 @@ export default function CommentSection({ problemId, problemTitle }) {
     setTimeout(() => setSubmittedFeedback(false), 3500);
   }
 
-  // Add reply to comment
   function handleAddReply(commentId) {
     if (!replyText.trim()) return;
 
@@ -156,7 +144,6 @@ export default function CommentSection({ problemId, problemTitle }) {
     setActiveReplyId(null);
   }
 
-  // Upvote toggle
   function handleVote(commentId) {
     setComments((prev) =>
       prev.map((c) => {
@@ -173,7 +160,6 @@ export default function CommentSection({ problemId, problemTitle }) {
     );
   }
 
-  // React to comment (Helpful / Warning / Action)
   function handleReaction(commentId, reactionType) {
     setComments((prev) =>
       prev.map((c) => {
@@ -200,7 +186,6 @@ export default function CommentSection({ problemId, problemTitle }) {
     );
   }
 
-  // Report/flag comment
   function handleFlagComment(commentId) {
     setFlaggedComments((prev) => ({
       ...prev,
@@ -208,7 +193,6 @@ export default function CommentSection({ problemId, problemTitle }) {
     }));
   }
 
-  // Filter and sort computation
   const filteredAndSortedComments = useMemo(() => {
     return comments
       .filter((c) => {
@@ -228,7 +212,7 @@ export default function CommentSection({ problemId, problemTitle }) {
 
   return (
     <section className="comment-section" aria-label="Community Discussion & Action Forum">
-      {/* Header */}
+
       <div className="comment-section__header">
         <div>
           <span className="comment-section__eyebrow">COMMUNITY FORUM & UPDATES</span>
@@ -276,7 +260,6 @@ export default function CommentSection({ problemId, problemTitle }) {
         </div>
       </div>
 
-      {/* Guidelines banner */}
       {showGuidelines && (
         <div className="comment-guidelines-box">
           <h4 className="comment-guidelines-title">Community Participation Standards</h4>
@@ -288,7 +271,6 @@ export default function CommentSection({ problemId, problemTitle }) {
         </div>
       )}
 
-      {/* Category filters & Search bar */}
       <div className="comment-filter-bar">
         <div className="comment-category-pills">
           {DISCUSSION_CATEGORIES.map((cat) => (
@@ -323,7 +305,6 @@ export default function CommentSection({ problemId, problemTitle }) {
         </div>
       </div>
 
-      {/* Main Comment Form */}
       <form className="comment-form" onSubmit={handleAddComment}>
         <div className="comment-form__author-row">
           <input
@@ -380,7 +361,6 @@ export default function CommentSection({ problemId, problemTitle }) {
         )}
       </form>
 
-      {/* Comment List */}
       <div className="comment-list">
         {filteredAndSortedComments.length === 0 ? (
           <div className="comment-empty">
@@ -425,7 +405,6 @@ export default function CommentSection({ problemId, problemTitle }) {
 
                 <p className="comment-card__text">{comment.text}</p>
 
-                {/* Actions & Reactions Row */}
                 <div className="comment-card__actions-row">
                   <div className="comment-card__vote-group">
                     <button
@@ -490,7 +469,6 @@ export default function CommentSection({ problemId, problemTitle }) {
                   </div>
                 </div>
 
-                {/* Reply Form */}
                 {activeReplyId === comment.id && (
                   <div className="comment-reply-box">
                     <div className="comment-reply-header">
@@ -530,7 +508,6 @@ export default function CommentSection({ problemId, problemTitle }) {
                   </div>
                 )}
 
-                {/* Nested Replies */}
                 {comment.replies && comment.replies.length > 0 && (
                   <div className="comment-replies-list">
                     {comment.replies.map((reply) => (

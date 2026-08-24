@@ -1,11 +1,3 @@
-/* ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: VoteButton.css
- * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
- * Description: Styles for vote buttons, active highlight colors, and hover transitions.
- * ==================================================================== */
-
 .vote-button {
   display: flex;
   gap: 0.35rem;

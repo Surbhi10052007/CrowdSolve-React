@@ -1,13 +1,3 @@
-/**
- * ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: ProblemDetails.jsx
- * Contributor: Member 2 (Shubhleen Kaur - Frontend & UI Components)
- * Description: Single problem view with breadcrumb header, StatusTracker, problem description, solutions listing, endorse button, share action, and comments section.
- * ====================================================================
- */
-
 import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { getProblemById } from "../data/problems";
@@ -24,16 +14,13 @@ export default function ProblemDetails() {
   const [hasEndorsed, setHasEndorsed] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
-  // Check user-posted problems first, then mock data.
   const problem =
     userProblems.find((p) => p.id === Number(id)) || getProblemById(id);
 
-  // Redirect to 404 if problem not found.
   if (!problem) {
     return <Navigate to="/404" replace />;
   }
 
-  // Get and sort solutions by score (highest first).
   const solutionList = getSolutionsByProblemId(problem.id);
   const sortedSolutions = [...solutionList].sort(
     (a, b) => getSolutionScore(b) - getSolutionScore(a)
@@ -56,13 +43,13 @@ export default function ProblemDetails() {
 
   return (
     <div className="problem-details">
-      {/* ──── Header banner ──── */}
+
       <div className="problem-details__banner">
         <div className="container">
           <nav className="problem-details__breadcrumbs" aria-label="Breadcrumb">
             <Link to="/problems">Problems</Link> / <span>{problem.city}</span> / <span>{problem.category}</span>
           </nav>
-          
+
           <div className="problem-details__title-row">
             <div>
               <span className="problem-details__category">{problem.category}</span>
@@ -89,9 +76,9 @@ export default function ProblemDetails() {
       </div>
 
       <div className="container problem-details__layout">
-        {/* ──── Main content ──── */}
+
         <div className="problem-details__main">
-          {/* Status Tracker */}
+
           <StatusTracker
             status={problem.status}
             updatedAt={problem.date || "Recently"}
@@ -112,7 +99,6 @@ export default function ProblemDetails() {
 
           <hr className="problem-details__divider" />
 
-          {/* Proposed Solutions Section */}
           <div className="problem-details__solutions-header">
             <h2 className="problem-details__section-title">
               PROPOSED COMMUNITY SOLUTIONS ({solutionList.length})
@@ -135,14 +121,12 @@ export default function ProblemDetails() {
             </p>
           )}
 
-          {/* Community Discussion Forum */}
           <CommentSection
             problemId={problem.id}
             problemTitle={problem.title}
           />
         </div>
 
-        {/* ──── Sidebar ──── */}
         <aside className="problem-details__sidebar">
           <div className="problem-details__card">
             <h3 className="problem-details__card-title">ISSUE DETAILS</h3>
