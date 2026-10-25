@@ -1,0 +1,398 @@
+/* ─── ImpactDashboard Page ─────────────────────────────────────────────────
+   Visual reference: forest-green hero with cityscape photograph,
+   elegant ivory panels, soft botanical panel decorations.
+   All decorative imagery is applied ONLY to pseudo-elements / dedicated
+   layers (never on the content container) so content opacity stays at 100%.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Hero ──────────────────────────────────────────────────────────────────── */
+.impact-dashboard__header {
+  position: relative;
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  overflow: hidden;
+  /* Cityscape photo as background */
+  background-image: url("/images/impact-hero.jpg");
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  /* Override section--dark plain color */
+  background-color: #1a2b1e;
+}
+
+/* Dark forest-green overlay fading left → right */
+.impact-dashboard__header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(20, 38, 22, 0.92) 0%,
+    rgba(20, 38, 22, 0.78) 40%,
+    rgba(20, 38, 22, 0.50) 70%,
+    rgba(20, 38, 22, 0.30) 100%
+  );
+  pointer-events: none;
+}
+
+/* Ivory vignette fading in from the right edge */
+.impact-dashboard__header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
+    rgba(244, 241, 230, 0.18) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.impact-dashboard__header .container {
+  position: relative;
+  z-index: 1;
+}
+
+.impact-dashboard__title {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 900;
+  color: #f4f1e6; /* warm ivory — matches --color-cream */
+  margin-bottom: 1rem;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.impact-dashboard__subtitle {
+  font-size: 1.05rem;
+  color: rgba(244, 241, 230, 0.82);
+  max-width: 520px;
+  line-height: 1.65;
+}
+
+/* ── Main content area ─────────────────────────────────────────────────────── */
+.impact-dashboard > .section--cream {
+  background: var(--color-cream);
+}
+
+/* ── City Filter ───────────────────────────────────────────────────────────── */
+.impact-dashboard__city-filter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.impact-dashboard__filter-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-muted-dark);
+  white-space: nowrap;
+}
+
+.impact-dashboard__filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ── Loading State ──────────────────────────────────────────────────────────── */
+.impact-dashboard__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 2rem;
+  color: var(--color-muted-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.impact-dashboard__spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border-light);
+  border-top-color: #3d6644; /* forest green */
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Error State ────────────────────────────────────────────────────────────── */
+.impact-dashboard__error {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #b3411f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ── Stat Grid ──────────────────────────────────────────────────────────────── */
+.impact-dashboard__stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Charts Row ─────────────────────────────────────────────────────────────── */
+.impact-dashboard__charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Panel (elegant ivory card — no heavy black offset shadow) ───────────────
+   Uses a warm-gray border and a soft natural box-shadow instead.
+   Botanical decoration applied via ::after pseudo-element at low opacity.
+   ──────────────────────────────────────────────────────────────────────────── */
+.impact-dashboard__panel {
+  position: relative;
+  background: #fffdf8; /* slightly warmer white */
+  border: 1.5px solid rgba(60, 55, 40, 0.14); /* warm gray — not black */
+  box-shadow:
+    0 2px 8px rgba(40, 38, 30, 0.07),
+    0 6px 24px rgba(40, 38, 30, 0.05);
+  border-radius: 10px;
+  padding: 1.75rem 1.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+/* Botanical decoration layer — appears at bottom-right, 10% opacity */
+.impact-dashboard__panel::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 180px;
+  height: 120px;
+  background-image: url("/images/botanical-decor.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.09;
+  pointer-events: none;
+  border-radius: 0 10px 10px 0;
+}
+
+/* Panel with cityscape panel decoration (category/city panels) */
+.impact-dashboard__panel--city::after {
+  background-image: url("/images/impact-hero.jpg");
+  background-position: center bottom;
+  opacity: 0.06;
+  width: 260px;
+  height: 110px;
+}
+
+.impact-dashboard__panel-title {
+  position: relative;
+  z-index: 1;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1e2e1f; /* deep forest green-dark */
+  margin-bottom: 0.3rem;
+}
+
+.impact-dashboard__panel-sub {
+  position: relative;
+  z-index: 1;
+  font-size: 0.82rem;
+  color: var(--color-muted-dark);
+  margin-bottom: 1.35rem;
+}
+
+/* ── Resolution Callout ─────────────────────────────────────────────────────── */
+.impact-dashboard__resolution-callout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(61, 102, 68, 0.09); /* forest-green tint */
+  border: 1.5px solid rgba(61, 102, 68, 0.25);
+  border-radius: 8px;
+}
+
+.impact-dashboard__resolution-value {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #2d5233; /* forest green */
+  flex-shrink: 0;
+}
+
+.impact-dashboard__resolution-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.4;
+}
+
+.impact-dashboard__resolution-label small {
+  font-weight: 400;
+  color: var(--color-muted-dark);
+  font-size: 0.78rem;
+}
+
+/* ── City Table ─────────────────────────────────────────────────────────────── */
+.impact-dashboard__city-table {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.impact-dashboard__city-row {
+  display: grid;
+  grid-template-columns: 130px 60px 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.impact-dashboard__city-row--header {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-dark);
+  padding-bottom: 0.5rem;
+  border-bottom: 1.5px solid rgba(60, 55, 40, 0.12);
+}
+
+.impact-dashboard__city-name {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  transition: color 0.15s ease;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.impact-dashboard__city-name:hover {
+  color: var(--color-coral);
+}
+
+.impact-dashboard__city-name.is-selected {
+  color: #2d5233;
+  font-weight: 800;
+}
+
+.impact-dashboard__city-count {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--color-text-dark);
+}
+
+.impact-dashboard__city-bar-track {
+  background: rgba(244, 241, 230, 0.8);
+  border-radius: 4px;
+  height: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(60, 55, 40, 0.1);
+}
+
+.impact-dashboard__city-bar {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #3d6644, #5a9660);
+  min-width: 4px;
+  transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Bottom CTA strip ───────────────────────────────────────────────────────── */
+.impact-dashboard__cta {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f4f1e6;
+  border: 1.5px solid rgba(60, 55, 40, 0.12);
+  box-shadow: 0 2px 8px rgba(40, 38, 30, 0.06);
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Faded community photo behind CTA */
+.impact-dashboard__cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/community-impact.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+.impact-dashboard__cta-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.impact-dashboard__cta-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 900;
+  color: #1e2e1f;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.impact-dashboard__cta-desc {
+  font-size: 0.95rem;
+  color: var(--color-muted-dark);
+  max-width: 440px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.6;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .impact-dashboard__charts-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .impact-dashboard__stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .impact-dashboard__city-row {
+    grid-template-columns: 100px 48px 1fr;
+    gap: 0.5rem;
+  }
+
+  .impact-dashboard__panel::after {
+    width: 120px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 400px) {
+  .impact-dashboard__stat-grid {
+    grid-template-columns: 1fr;
+  }
+}

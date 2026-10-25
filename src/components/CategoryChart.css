@@ -1,0 +1,56 @@
+/* ─── CategoryChart ─── */
+.category-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.category-chart--empty {
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-muted-dark);
+  font-size: 0.9rem;
+}
+
+.category-chart__row {
+  display: grid;
+  grid-template-columns: 110px 1fr 36px;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.category-chart__label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.category-chart__bar-track {
+  background: rgba(244, 241, 230, 0.9);
+  border-radius: 4px;
+  height: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(60, 55, 40, 0.1);
+}
+
+.category-chart__bar {
+  height: 100%;
+  border-radius: 4px;
+  min-width: 4px;
+  transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.category-chart__count {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  .category-chart__row {
+    grid-template-columns: 90px 1fr 30px;
+  }
+}

@@ -1,0 +1,111 @@
+/* FormField.css — Advanced reusable form styling */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.35rem;
+  width: 100%;
+}
+
+.field__label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field__label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+}
+
+.field__required {
+  color: #d9381e;
+  font-weight: 900;
+}
+
+.field__counter {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-muted-dark);
+}
+
+.field__counter--over {
+  color: #d9381e;
+  font-weight: 700;
+}
+
+.field__control-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--color-border-light);
+  border-radius: 4px;
+  background: var(--color-white);
+  color: var(--color-text-dark);
+  transition: all 0.18s cubic-bezier(0.2, 0, 0, 1);
+  box-sizing: border-box;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--color-dark);
+  box-shadow: 3px 3px 0px var(--color-dark);
+}
+
+.field input.has-error,
+.field textarea.has-error,
+.field select.has-error,
+.field--has-error input,
+.field--has-error textarea,
+.field--has-error select {
+  border-color: #d9381e;
+  background-color: #fff9f8;
+}
+
+.field--has-error input:focus,
+.field--has-error textarea:focus,
+.field--has-error select:focus {
+  box-shadow: 3px 3px 0px #d9381e;
+}
+
+.field-error {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #b32a15;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin: 0;
+  animation: shakeX 0.3s ease;
+}
+
+.field-error__icon {
+  font-size: 0.9rem;
+}
+
+.field-hint {
+  color: var(--color-muted-dark);
+  font-size: 0.8rem;
+  margin: 0;
+  line-height: 1.35;
+}
+
+@keyframes shakeX {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}

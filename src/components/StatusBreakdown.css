@@ -1,0 +1,70 @@
+/* ─── StatusBreakdown ─── */
+.status-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.status-breakdown--empty {
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-muted-dark);
+  font-size: 0.9rem;
+}
+
+.status-breakdown__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.status-breakdown__icon {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.status-breakdown__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.status-breakdown__top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.status-breakdown__name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.status-breakdown__count {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-text-dark);
+}
+
+.status-breakdown__track {
+  background: var(--color-cream-2);
+  border-radius: 3px;
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-light);
+  margin-bottom: 0.25rem;
+}
+
+.status-breakdown__bar {
+  height: 100%;
+  border-radius: 3px;
+  min-width: 4px;
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.status-breakdown__pct {
+  font-size: 0.75rem;
+  color: var(--color-muted-dark);
+  font-weight: 600;
+}

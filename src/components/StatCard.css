@@ -1,0 +1,81 @@
+/* ─── StatCard — elegant ivory cards with soft shadows ─── */
+.stat-card {
+  position: relative;
+  background: #fffdf8; /* warm white */
+  border: 1.5px solid rgba(60, 55, 40, 0.13);
+  box-shadow:
+    0 1px 4px rgba(40, 38, 30, 0.06),
+    0 4px 16px rgba(40, 38, 30, 0.05);
+  border-radius: 10px;
+  padding: 1.6rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  overflow: hidden;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 2px 8px rgba(40, 38, 30, 0.09),
+    0 8px 28px rgba(40, 38, 30, 0.08);
+}
+
+/* Botanical decoration layer — bottom-right corner, ~10% opacity */
+.stat-card::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  width: 90px;
+  height: 60px;
+  background-image: url("/images/botanical-decor.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.10;
+  pointer-events: none;
+  border-radius: 0 10px 0 0;
+}
+
+/* Left accent stripe using the card's accent color */
+.stat-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 3px;
+  background: var(--stat-accent);
+  border-radius: 0 2px 2px 0;
+  opacity: 0.7;
+}
+
+.stat-card__icon {
+  position: relative;
+  z-index: 1;
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+  line-height: 1;
+}
+
+.stat-card__value {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 900;
+  color: var(--stat-accent);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.stat-card__label {
+  position: relative;
+  z-index: 1;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-dark);
+}

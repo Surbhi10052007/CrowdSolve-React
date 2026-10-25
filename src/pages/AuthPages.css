@@ -1,47 +1,183 @@
-/* ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: AuthPages.css
- * Contributor: Member 3 (Karan Kumar - Discovery & Authentication)
- * Description: Styles for authentication forms (Login & Signup), input groups, submit buttons, and toggle links.
- * ==================================================================== */
+/* ─── Auth Pages (Login & Signup) ─── */
+.auth-page {
+  padding: 3rem 0 5rem;
+  min-height: calc(100vh - 160px);
+}
 
 .auth-page__container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 65vh;
-  padding: 3rem 1rem;
 }
 
 .auth-page__card {
   width: 100%;
-  max-width: 420px;
+  max-width: 480px;
   background: var(--color-white);
-  border: 1px solid var(--color-border-light);
-  border-radius: 12px;
+  border: 2px solid var(--color-dark);
+  box-shadow: 8px 8px 0px var(--color-dark);
+  border-radius: 6px;
   padding: 2.5rem;
-  box-shadow: var(--shadow-md);
+  animation: authCardIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .auth-page__card h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 900;
-  color: var(--color-dark);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.auth-page__desc {
+  font-size: 0.9rem;
+  color: var(--color-muted-dark);
   margin-bottom: 1.5rem;
+  line-height: 1.45;
+}
+
+/* Quick demo logins for examiners */
+.auth-page__demo-box {
+  background: var(--color-cream);
+  border: 1px dashed var(--color-dark);
+  border-radius: 4px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.75rem;
+}
+
+.auth-page__demo-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.auth-page__demo-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.btn-demo {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-dark);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: all 0.15s ease;
+}
+
+.btn-demo:hover {
+  background: var(--color-lime);
+  transform: translateY(-1px);
+  box-shadow: 2px 2px 0px var(--color-dark);
+}
+
+.auth-page__divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.25rem 0 1.5rem;
+  color: var(--color-muted-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.auth-page__divider::before,
+.auth-page__divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.auth-page__divider span {
+  padding: 0 0.75rem;
+}
+
+/* Password input with toggle button */
+.input-with-action {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-action input {
+  padding-right: 3rem;
+}
+
+.input-action-btn {
+  position: absolute;
+  right: 0.65rem;
+  background: none;
+  border: none;
+  color: var(--color-muted-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  border-radius: 3px;
+}
+
+.input-action-btn:hover {
+  color: var(--color-dark);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.auth-page__error-banner {
+  background: #fde8e8;
+  border: 1.5px solid #d9381e;
+  color: #b32a15;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.auth-page__terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--color-muted-dark);
+  margin-bottom: 1.4rem;
+  line-height: 1.4;
+}
+
+.auth-page__terms input[type="checkbox"] {
+  margin-top: 0.2rem;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-dark);
 }
 
 .auth-page__switch {
   text-align: center;
   font-size: 0.88rem;
   color: var(--color-muted-dark);
-  margin-top: 1.2rem;
+  margin-top: 1.5rem;
 }
 
 .auth-page__switch a {
   font-weight: 700;
-  color: var(--color-lime-dim);
+  color: var(--color-dark);
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .auth-page__note {
@@ -49,5 +185,18 @@
   font-size: 0.75rem;
   color: var(--color-muted-dark);
   margin-top: 1rem;
-  line-height: 1.5;
+  line-height: 1.45;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-light);
+}
+
+@keyframes authCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

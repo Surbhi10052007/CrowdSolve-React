@@ -1,42 +1,31 @@
-/* ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: index.css
- * Contributor: Member 1 (Surbhi - Project Lead)
- * Description: Global styling system, CSS variables (colors, typography, spacing), and base utility classes.
- * ==================================================================== */
-
 /* =============================================================
-   CrowdSolve (Eval 1 - Light Edition) — Global Styles & Design Tokens
+   CrowdSolve — Global Styles & Design Tokens
    =============================================================
    All CSS variables (colours, fonts, spacing) live here so every
-   component reuses the same clean, crisp light theme palette.
+   component can reuse the same palette.  Utility classes like
+   .container, .section, .btn, and form-field styles are also
+   defined here to avoid duplication.
    ============================================================= */
 
-/* ─── Design Tokens (Light Theme Only) ─── */
+/* ─── Design Tokens ─── */
 :root {
   /* colours */
-  --color-dark:         #0f172a;
-  --color-dark-2:       #1e293b;
-  --color-cream:        #ffffff;
-  --color-cream-2:      #f8fafc;
-  --color-surface-card: #ffffff;
-  --color-surface-hover:#f1f5f9;
-  
-  --color-lime:         #16a34a;
-  --color-lime-dim:     #15803d;
-  --color-lime-light:   #dcfce7;
-  --color-coral:        #ea580c;
-  --color-coral-light:  #ffedd5;
-  --color-white:        #ffffff;
+  --color-dark:        #14140f;
+  --color-dark-2:      #1c1c16;
+  --color-cream:       #f4f1e6;
+  --color-cream-2:     #ece7d6;
+  --color-lime:        #c6f24a;
+  --color-lime-dim:    #a9d63c;
+  --color-coral:       #e07a4f;
+  --color-white:       #ffffff;
 
-  --color-text-dark:    #0f172a;
-  --color-text-light:   #0f172a;
-  --color-muted-dark:   #64748b;
-  --color-muted-light:  #64748b;
+  --color-text-dark:   #14140f;
+  --color-text-light:  #f4f1e6;
+  --color-muted-dark:  #8c8c80;
+  --color-muted-light: #b9b6a3;
 
-  --color-border-dark:  #e2e8f0;
-  --color-border-light: #e2e8f0;
+  --color-border-dark:  rgba(244, 241, 230, 0.16);
+  --color-border-light: rgba(20, 20, 15, 0.14);
 
   /* typography */
   --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
@@ -44,12 +33,12 @@
 
   /* layout */
   --max-width:    1320px;
-  --section-pad:  clamp(3rem, 7vw, 6rem);
+  --section-pad:  clamp(3rem, 8vw, 7rem);
 
   /* shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 28px rgba(0, 0, 0, 0.09);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
 
   /* animation */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -93,9 +82,8 @@ button {
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   margin: 0;
-  line-height: 1.05;
+  line-height: 1.02;
   letter-spacing: -0.02em;
-  color: var(--color-text-dark);
 }
 
 p {
@@ -130,10 +118,8 @@ select:focus-visible {
 }
 
 .section--dark {
-  background: var(--color-cream-2);
-  color: var(--color-text-dark);
-  border-top: 1px solid var(--color-border-light);
-  border-bottom: 1px solid var(--color-border-light);
+  background: var(--color-dark);
+  color: var(--color-text-light);
 }
 
 .section--cream {
@@ -157,11 +143,10 @@ select:focus-visible {
 
 .eyebrow::before {
   content: "";
-  width: 20px;
+  width: 22px;
   height: 2px;
   background: var(--color-lime);
   display: inline-block;
-  border-radius: 1px;
 }
 
 /* ─── Buttons ─── */
@@ -169,11 +154,11 @@ select:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.85rem 1.5rem;
+  padding: 0.9rem 1.6rem;
   font-weight: 700;
   font-size: 0.92rem;
   letter-spacing: 0.02em;
-  border-radius: 6px;
+  border-radius: 4px;
   border: 1px solid transparent;
   transition: transform 0.18s var(--ease-out),
               background 0.18s var(--ease-out),
@@ -195,45 +180,39 @@ select:focus-visible {
 
 .btn-primary {
   background: var(--color-lime);
-  color: var(--color-white);
+  color: var(--color-dark);
 }
 
 .btn-primary:hover {
   background: var(--color-lime-dim);
-  color: var(--color-white);
 }
 
 .btn-outline-dark {
-  background: var(--color-white);
-  color: var(--color-text-dark);
+  background: transparent;
+  color: var(--color-text-light);
   border-color: var(--color-border-dark);
 }
 
 .btn-outline-dark:hover {
-  border-color: var(--color-dark);
-  background: var(--color-surface-hover);
+  border-color: var(--color-lime);
+  color: var(--color-lime);
 }
 
 .btn-outline-light {
-  background: var(--color-white);
+  background: transparent;
   color: var(--color-text-dark);
   border-color: var(--color-border-light);
 }
 
 .btn-outline-light:hover {
   border-color: var(--color-text-dark);
-  background: var(--color-surface-hover);
 }
 
 .btn-ghost {
   background: transparent;
   border: none;
-  color: var(--color-text-dark);
+  color: inherit;
   padding: 0.4rem 0;
-}
-
-.btn-ghost:hover {
-  color: var(--color-lime-dim);
 }
 
 .btn-block {
@@ -253,28 +232,28 @@ select:focus-visible {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  border-radius: 4px;
+  border-radius: 3px;
   text-transform: uppercase;
 }
 
 .status-pill--proposed {
-  background: #fef3c7;
-  color: #b45309;
+  background: rgba(198, 242, 74, 0.15);
+  color: var(--color-lime-dim);
 }
 
 .status-pill--voted {
-  background: #ffedd5;
-  color: #c2410c;
+  background: rgba(224, 122, 79, 0.15);
+  color: var(--color-coral);
 }
 
 .status-pill--in-progress {
-  background: #e0f2fe;
-  color: #0369a1;
+  background: rgba(100, 160, 255, 0.15);
+  color: #5a9cf5;
 }
 
 .status-pill--implemented {
-  background: #dcfce7;
-  color: #15803d;
+  background: rgba(80, 200, 120, 0.12);
+  color: #3aaf5c;
 }
 
 /* ─── Form Fields ─── */
@@ -289,7 +268,6 @@ select:focus-visible {
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--color-text-dark);
 }
 
 .field input,
@@ -299,7 +277,7 @@ select:focus-visible {
   font-size: 0.95rem;
   padding: 0.75rem 0.9rem;
   border: 1px solid var(--color-border-light);
-  border-radius: 6px;
+  border-radius: 4px;
   background: var(--color-white);
   color: var(--color-text-dark);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -308,9 +286,8 @@ select:focus-visible {
 .field input:focus,
 .field textarea:focus,
 .field select:focus {
-  border-color: var(--color-lime);
-  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
-  outline: none;
+  border-color: var(--color-lime-dim);
+  box-shadow: 0 0 0 3px rgba(198, 242, 74, 0.18);
 }
 
 .field textarea {
@@ -319,13 +296,13 @@ select:focus-visible {
 }
 
 .field-error {
-  color: #dc2626;
+  color: #b3411f;
   font-size: 0.8rem;
 }
 
 .field input.has-error,
 .field textarea.has-error {
-  border-color: #dc2626;
+  border-color: #b3411f;
 }
 
 /* ─── Accessibility Helpers ─── */
@@ -334,11 +311,10 @@ select:focus-visible {
   left: -999px;
   top: 0;
   background: var(--color-lime);
-  color: var(--color-white);
+  color: var(--color-dark);
   padding: 0.6rem 1rem;
   z-index: 200;
   font-weight: 700;
-  border-radius: 4px;
 }
 
 .skip-link:focus {
@@ -362,7 +338,7 @@ select:focus-visible {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -371,12 +347,39 @@ select:focus-visible {
 }
 
 .animate-in {
-  animation: fadeInUp 0.4s var(--ease-out) both;
+  animation: fadeInUp 0.5s var(--ease-out) both;
 }
 
 /* ─── Mobile Overrides ─── */
 @media (max-width: 640px) {
   :root {
-    --section-pad: 2.5rem;
+    --section-pad: 3rem;
   }
 }
+
+/* ─── Filter Chip (shared by Problems & ImpactDashboard) ─── */
+.filter-chip {
+  padding: 0.4rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--color-border-light);
+  border-radius: 4px;
+  background: var(--color-cream);
+  color: var(--color-text-dark);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-chip:hover {
+  border-color: var(--color-dark);
+  background: var(--color-white);
+}
+
+.filter-chip.is-active {
+  background: var(--color-dark);
+  color: var(--color-lime);
+  border-color: var(--color-dark);
+  box-shadow: 2px 2px 0px var(--color-lime-dim);
+}
+

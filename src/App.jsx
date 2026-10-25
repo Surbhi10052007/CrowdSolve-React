@@ -1,9 +1,3 @@
-// App.jsx — Root component that sets up routing and context providers.
-//
-// CityProvider  → shares the currently selected city across all pages.
-// AuthProvider  → handles login / signup / logout and karma tracking.
-// BrowserRouter → enables client-side routing via React Router.
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CityProvider } from "./hooks/useCity";
 import { AuthProvider } from "./hooks/useAuth";
@@ -22,12 +16,10 @@ import ProblemDetails from "./pages/ProblemDetails";
 import PostProblem from "./pages/PostProblem";
 import Dashboard from "./pages/Dashboard";
 import ImpactDashboard from "./pages/ImpactDashboard";
-import Watchlist from "./pages/Watchlist";
-import Admin from "./pages/Admin";
+import SolvedProblems from "./pages/SolvedProblems";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
-import SolvedProblems from "./pages/SolvedProblems";
 
 export default function App() {
   return (
@@ -36,61 +28,52 @@ export default function App() {
         <AuthProvider>
           <CityProvider>
             <BrowserRouter>
-          {/* Skip-to-content link for keyboard / screen-reader users */}
-          <a href="#main-content" className="skip-link">
-            Skip to main content
-          </a>
+              {/* Skip-to-content link for keyboard / screen-reader users */}
+              <a href="#main-content" className="skip-link">
+                Skip to main content
+              </a>
 
-          <Navbar />
+              <Navbar />
 
-          <main id="main-content">
-            <Routes>
-              {/* Public routes */}
-              <Route path="/" element={<Home />} />
-              <Route path="/problems" element={<Problems />} />
-              <Route path="/problems/:id" element={<ProblemDetails />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/watchlist" element={<Watchlist />} />
-              <Route path="/impact" element={<ImpactDashboard />} />
-              <Route path="/solved" element={<SolvedProblems />} />
+              <main id="main-content">
+                <Routes>
+                  {/* Public routes */}
+                  <Route path="/" element={<Home />} />
+                  <Route path="/problems" element={<Problems />} />
+                  <Route path="/problems/:id" element={<ProblemDetails />} />
+                  <Route path="/impact" element={<ImpactDashboard />} />
+                  <Route path="/solved" element={<SolvedProblems />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Signup />} />
 
-              {/* Protected routes — redirect to /login if not logged in */}
-              <Route
-                path="/post"
-                element={
-                  <ProtectedRoute>
-                    <PostProblem />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/dashboard"
-                element={
-                  <ProtectedRoute>
-                    <Dashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/admin"
-                element={
-                  <ProtectedRoute>
-                    <Admin />
-                  </ProtectedRoute>
-                }
-              />
+                  {/* Protected routes — redirect to /login if not logged in */}
+                  <Route
+                    path="/post"
+                    element={
+                      <ProtectedRoute>
+                        <PostProblem />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/dashboard"
+                    element={
+                      <ProtectedRoute>
+                        <Dashboard />
+                      </ProtectedRoute>
+                    }
+                  />
 
-              {/* Catch-all 404 */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
+                  {/* Catch-all 404 */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </main>
 
-            <Footer />
-          </BrowserRouter>
-        </CityProvider>
-      </AuthProvider>
-    </ProblemProvider>
-  </ToastProvider>
-);
+              <Footer />
+            </BrowserRouter>
+          </CityProvider>
+        </AuthProvider>
+      </ProblemProvider>
+    </ToastProvider>
+  );
 }
