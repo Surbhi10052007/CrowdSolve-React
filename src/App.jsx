@@ -1,13 +1,4 @@
-/**
- * ====================================================================
- * CROWDSOLVE - EVAL 1
- * --------------------------------------------------------------------
- * File: App.jsx
- * Contributor: Member 1 (Surbhi - Project Lead)
- * Description: Core application layout, React Router configuration, Auth and City context providers.
- * ====================================================================
- */
-
+// App.jsx — Root component that sets up routing and context providers.
 //
 // CityProvider  → shares the currently selected city across all pages.
 // AuthProvider  → handles login / signup / logout and karma tracking.
@@ -16,6 +7,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CityProvider } from "./hooks/useCity";
 import { AuthProvider } from "./hooks/useAuth";
+import { ToastProvider } from "./hooks/useToast";
+import { ProblemProvider } from "./hooks/useProblemsContext";
 
 // Layout
 import Navbar from "./components/Navbar";
@@ -28,15 +21,21 @@ import Problems from "./pages/Problems";
 import ProblemDetails from "./pages/ProblemDetails";
 import PostProblem from "./pages/PostProblem";
 import Dashboard from "./pages/Dashboard";
+import ImpactDashboard from "./pages/ImpactDashboard";
+import Watchlist from "./pages/Watchlist";
+import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
+import SolvedProblems from "./pages/SolvedProblems";
 
 export default function App() {
   return (
-    <AuthProvider>
-      <CityProvider>
-        <BrowserRouter>
+    <ToastProvider>
+      <ProblemProvider>
+        <AuthProvider>
+          <CityProvider>
+            <BrowserRouter>
           {/* Skip-to-content link for keyboard / screen-reader users */}
           <a href="#main-content" className="skip-link">
             Skip to main content
@@ -52,6 +51,9 @@ export default function App() {
               <Route path="/problems/:id" element={<ProblemDetails />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/watchlist" element={<Watchlist />} />
+              <Route path="/impact" element={<ImpactDashboard />} />
+              <Route path="/solved" element={<SolvedProblems />} />
 
               {/* Protected routes — redirect to /login if not logged in */}
               <Route
@@ -70,15 +72,25 @@ export default function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute>
+                    <Admin />
+                  </ProtectedRoute>
+                }
+              />
 
               {/* Catch-all 404 */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
 
-          <Footer />
-        </BrowserRouter>
-      </CityProvider>
-    </AuthProvider>
-  );
+            <Footer />
+          </BrowserRouter>
+        </CityProvider>
+      </AuthProvider>
+    </ProblemProvider>
+  </ToastProvider>
+);
 }
