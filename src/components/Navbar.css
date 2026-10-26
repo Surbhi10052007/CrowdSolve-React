@@ -1,4 +1,3 @@
-/* ─── Navbar ─── */
 .navbar {
   position: sticky;
   top: 0;
@@ -29,7 +28,6 @@
   opacity: 0.85;
 }
 
-/* Center Desktop nav links */
 .navbar__links {
   display: flex;
   align-items: center;
@@ -60,14 +58,12 @@
   color: #f09070;
 }
 
-/* Right side container */
 .navbar__right {
   display: flex;
   align-items: center;
   gap: 0.85rem;
 }
 
-/* Highlighted Login Button on Right (same lime color as Post a Problem) */
 .navbar__login-btn {
   background: var(--color-lime);
   color: var(--color-dark);
@@ -97,7 +93,6 @@
   letter-spacing: 0.03em;
 }
 
-/* Desktop User Auth Group (when logged in) */
 .navbar__auth-desktop {
   display: flex;
   align-items: center;
@@ -154,13 +149,11 @@
   border-color: var(--color-coral);
 }
 
-/* Mobile specific blocks (hidden by default on desktop) */
 .navbar__mobile-city,
 .navbar__mobile-auth {
   display: none;
 }
 
-/* ─── Hamburger Button ─── */
 .navbar__hamburger {
   display: none;
   flex-direction: column;
@@ -183,7 +176,6 @@
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* ─── Responsive: Mobile ─── */
 @media (max-width: 860px) {
   .navbar__hamburger {
     display: flex;

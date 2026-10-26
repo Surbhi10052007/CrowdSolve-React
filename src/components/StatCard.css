@@ -1,7 +1,6 @@
-/* ─── StatCard — elegant ivory cards with soft shadows ─── */
 .stat-card {
   position: relative;
-  background: #fffdf8; /* warm white */
+  background: #fffdf8;
   border: 1.5px solid rgba(60, 55, 40, 0.13);
   box-shadow:
     0 1px 4px rgba(40, 38, 30, 0.06),
@@ -22,7 +21,6 @@
     0 8px 28px rgba(40, 38, 30, 0.08);
 }
 
-/* Botanical decoration layer — bottom-right corner, ~10% opacity */
 .stat-card::after {
   content: "";
   position: absolute;
@@ -38,7 +36,6 @@
   border-radius: 0 10px 0 0;
 }
 
-/* Left accent stripe using the card's accent color */
 .stat-card::before {
   content: "";
   position: absolute;

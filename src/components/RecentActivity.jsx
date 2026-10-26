@@ -1,6 +1,3 @@
-// RecentActivity.jsx — Displays the last N activity events from activityLog.
-// Events are recorded in ProblemContext whenever a user votes, comments, bookmarks, or posts.
-
 import "./RecentActivity.css";
 
 const EVENT_CONFIG = {

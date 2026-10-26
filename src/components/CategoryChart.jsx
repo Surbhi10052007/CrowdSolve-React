@@ -1,7 +1,3 @@
-// CategoryChart.jsx — Horizontal CSS bar chart showing problems per category.
-// No third-party charting library — pure CSS bars that match the design system.
-// Props: data = [{ label, count, total }]
-
 import "./CategoryChart.css";
 
 const CATEGORY_COLORS = {

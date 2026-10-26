@@ -1,6 +1,3 @@
-// StatusBreakdown.jsx — Displays problem count + percentage for each status.
-// Props: data = [{ status, count, pct }]
-
 import "./StatusBreakdown.css";
 
 const STATUS_CONFIG = {

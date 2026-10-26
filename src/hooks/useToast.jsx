@@ -1,5 +1,3 @@
-// useToast.jsx — Toast notification context and hook.
-
 import { createContext, useContext, useState, useCallback } from "react";
 import ToastContainer from "../components/ToastContainer";
 

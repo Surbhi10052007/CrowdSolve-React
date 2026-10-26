@@ -1,7 +1,3 @@
-// comments.js — Seed comments for a few problems so the discussion
-// section doesn't look empty when the app first loads.
-// New comments a user writes are added on top and saved to localStorage.
-
 export const seedComments = {
   1: [
     {

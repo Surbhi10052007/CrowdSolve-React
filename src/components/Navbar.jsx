@@ -15,12 +15,11 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar__inner">
-        {/* Logo — links back to homepage */}
+
         <Link to="/" className="navbar__logo" onClick={closeMenu}>
           CROWDSOLVE
         </Link>
 
-        {/* Center navigation links */}
         <nav
           className={`navbar__links ${menuOpen ? "is-open" : ""}`}
           aria-label="Main navigation"
@@ -61,12 +60,10 @@ export default function Navbar() {
             How It Works
           </a>
 
-          {/* City selector inline for mobile menu */}
           <div className="navbar__mobile-city">
             <CitySelector variant="compact" />
           </div>
 
-          {/* Mobile auth links inside drawer */}
           <div className="navbar__mobile-auth">
             {isLoggedIn ? (
               <>
@@ -103,13 +100,11 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* Right side: City Selector + Login Button + Post Problem Button */}
         <div className="navbar__right">
           <div className="navbar__city-desktop">
             <CitySelector variant="compact" />
           </div>
 
-          {/* Login or User Profile shifted to the RIGHT side */}
           {isLoggedIn ? (
             <div className="navbar__auth-desktop">
               <NavLink
@@ -138,12 +133,10 @@ export default function Navbar() {
             </Link>
           )}
 
-          {/* Post a Problem Button */}
           <Link to="/post" className="btn btn-primary navbar__post-btn">
             POST A PROBLEM +
           </Link>
 
-          {/* Mobile hamburger menu button */}
           <button
             type="button"
             className="navbar__hamburger"

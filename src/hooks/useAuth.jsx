@@ -1,16 +1,8 @@
-// useAuth.jsx — Frontend-only authentication and karma reputation system.
-//
-// Syllabus Alignment:
-// - Context API and State Management (Lectures 49-54)
-// - Custom hooks and state architecture
-// - Role-based authorization (Admin / Citizen)
-
 import { createContext, useContext, useCallback } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 const AuthContext = createContext(null);
 
-// Karma points awarded for community actions
 const KARMA_RULES = {
   problemPosted: 10,
   solutionProposed: 15,
@@ -18,7 +10,6 @@ const KARMA_RULES = {
   winningSolution: 30,
 };
 
-// Determines community rank based on karma
 function getLevel(karma) {
   if (karma >= 1000) return "Change Maker";
   if (karma >= 500)  return "Community Builder";
@@ -27,7 +18,6 @@ function getLevel(karma) {
   return "Newcomer";
 }
 
-// Next tier calculation for progress bars
 export function getNextLevelProgress(karma) {
   if (karma >= 1000) return { current: 1000, next: 1000, percentage: 100, nextRank: "Max Rank" };
   if (karma >= 500)  return { current: karma, next: 1000, percentage: Math.round(((karma - 500) / 500) * 100), nextRank: "Change Maker" };
@@ -36,7 +26,6 @@ export function getNextLevelProgress(karma) {
   return { current: karma, next: 50, percentage: Math.round((karma / 50) * 100), nextRank: "Contributor" };
 }
 
-// Seed accounts for effortless testing and evaluation
 const SEED_USERS = [
   {
     name: "Admin Moderator",
@@ -84,7 +73,6 @@ export function AuthProvider({ children }) {
 
   const currentUser = users.find((u) => u.email === currentUserEmail) || null;
 
-  // Sign Up with enhanced user profile
   function signup(name, email, password) {
     const existing = users.find((u) => u.email.toLowerCase() === email.toLowerCase());
     if (existing) {
@@ -95,7 +83,7 @@ export function AuthProvider({ children }) {
       email: email.toLowerCase(),
       password,
       role: email.toLowerCase().includes("admin") ? "admin" : "citizen",
-      karma: 20, // initial welcome bonus karma
+      karma: 20,
       problemsPosted: 0,
       solutionsSubmitted: 0,
       votesReceived: 0,
@@ -110,7 +98,6 @@ export function AuthProvider({ children }) {
     return { success: true };
   }
 
-  // Log In
   function login(email, password) {
     const user = users.find((u) => u.email.toLowerCase() === email.toLowerCase());
     if (!user || user.password !== password) {
@@ -120,7 +107,6 @@ export function AuthProvider({ children }) {
     return { success: true };
   }
 
-  // Fast demo login helper for evaluation
   function demoLogin(type = "citizen") {
     if (type === "admin") {
       setCurrentUserEmail("admin@crowdsolve.com");
@@ -129,12 +115,10 @@ export function AuthProvider({ children }) {
     }
   }
 
-  // Log Out
   function logout() {
     setCurrentUserEmail(null);
   }
 
-  // Add Karma points
   const addKarma = useCallback((amount, reason) => {
     if (!currentUserEmail) return;
     setUsers((prev) =>
@@ -152,7 +136,6 @@ export function AuthProvider({ children }) {
     );
   }, [currentUserEmail, setUsers]);
 
-  // Increment user stat
   const incrementStat = useCallback((field, amount = 1) => {
     if (!currentUserEmail) return;
     setUsers((prev) =>
@@ -164,7 +147,6 @@ export function AuthProvider({ children }) {
     );
   }, [currentUserEmail, setUsers]);
 
-  // Admin action: toggle user role
   function toggleUserRole(targetEmail) {
     setUsers((prev) =>
       prev.map((u) =>
@@ -175,7 +157,6 @@ export function AuthProvider({ children }) {
     );
   }
 
-  // Admin action: adjust karma
   function adjustUserKarma(targetEmail, delta) {
     setUsers((prev) =>
       prev.map((u) =>

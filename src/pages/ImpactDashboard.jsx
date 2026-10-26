@@ -1,12 +1,3 @@
-// ImpactDashboard.jsx — Community Impact Dashboard (Feature 3).
-//
-// Syllabus Alignment:
-// - Context API and State Architecture (Lectures 49-54): reads from ProblemContext
-// - Asynchronous State Management (Lectures 67-72): simulated loading state
-// - Reusable Components: StatCard, CategoryChart, StatusBreakdown, RecentActivity
-// - City-filtered analytics derived dynamically from shared data
-// - Resolution Rate = (Implemented / Total) × 100  — no hardcoded values
-
 import { useState, useEffect, useMemo } from "react";
 import { useProblems } from "../hooks/useProblemsContext";
 import { cities } from "../data/cities";
@@ -16,19 +7,15 @@ import StatusBreakdown from "../components/StatusBreakdown";
 import RecentActivity from "../components/RecentActivity";
 import "./ImpactDashboard.css";
 
-// Categories tracked across the platform
 const ALL_CATEGORIES = ["Civic", "Environment", "Education", "Technology", "Community", "Campus", "Health"];
 
-// Status values used in data
 const ALL_STATUSES = ["Proposed", "Voted", "In Progress", "Implemented"];
 
 export default function ImpactDashboard() {
   const { problems, totalCommentCount, activityLog } = useProblems();
 
-  // ── City filter (All Cities by default) ─────────────────────────────────────
   const [selectedCity, setSelectedCity] = useState("All");
 
-  // ── Simulated async loading state (Lectures 67-72) ──────────────────────────
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState(null);
 
@@ -36,19 +23,17 @@ export default function ImpactDashboard() {
     setIsLoading(true);
     setLoadError(null);
     const timer = setTimeout(() => {
-      // In a real app this would be a fetch() call
+
       setIsLoading(false);
     }, 700);
-    return () => clearTimeout(timer); // cleanup prevents state update after unmount
+    return () => clearTimeout(timer);
   }, [selectedCity]);
 
-  // ── Filtered problem list based on city ─────────────────────────────────────
   const filteredProblems = useMemo(() => {
     if (selectedCity === "All") return problems;
     return problems.filter((p) => p.city === selectedCity);
   }, [problems, selectedCity]);
 
-  // ── Summary Statistics (all derived — no hardcoded values) ──────────────────
   const totalProblems = filteredProblems.length;
   const implementedCount = filteredProblems.filter((p) => p.status === "Implemented").length;
   const inProgressCount  = filteredProblems.filter((p) => p.status === "In Progress").length;
@@ -57,18 +42,16 @@ export default function ImpactDashboard() {
     ? Math.round((implementedCount / totalProblems) * 100)
     : 0;
 
-  // ── Category Distribution ────────────────────────────────────────────────────
   const categoryData = useMemo(() => {
     return ALL_CATEGORIES
       .map((cat) => ({
         label: cat,
         count: filteredProblems.filter((p) => p.category === cat).length,
       }))
-      .filter((d) => d.count > 0) // hide empty categories
+      .filter((d) => d.count > 0)
       .sort((a, b) => b.count - a.count);
   }, [filteredProblems]);
 
-  // ── Status Distribution ───────────────────────────────────────────────────────
   const statusData = useMemo(() => {
     return ALL_STATUSES.map((status) => {
       const count = filteredProblems.filter((p) => p.status === status).length;
@@ -77,7 +60,6 @@ export default function ImpactDashboard() {
     });
   }, [filteredProblems, totalProblems]);
 
-  // ── City-Wise Problem Counts ─────────────────────────────────────────────────
   const cityData = useMemo(() => {
     return cities.map((city) => ({
       city,
@@ -85,7 +67,6 @@ export default function ImpactDashboard() {
     })).sort((a, b) => b.count - a.count);
   }, [problems]);
 
-  // ── Filter activity log to city if selected ──────────────────────────────────
   const filteredActivity = useMemo(() => {
     if (selectedCity === "All") return activityLog;
     return activityLog.filter((e) => !e.city || e.city === selectedCity);
@@ -93,7 +74,7 @@ export default function ImpactDashboard() {
 
   return (
     <div className="impact-dashboard">
-      {/* Hero — cityscape photo + forest-green overlay */}
+
       <section className="impact-dashboard__header">
         <div className="container">
           <p className="eyebrow">COMMUNITY IMPACT</p>
@@ -107,7 +88,6 @@ export default function ImpactDashboard() {
       <section className="section section--cream">
         <div className="container">
 
-          {/* ── City Filter ─── */}
           <div className="impact-dashboard__city-filter">
             <span className="impact-dashboard__filter-label">Filter by City:</span>
             <div className="impact-dashboard__filter-chips" role="group" aria-label="Filter by city">
@@ -131,7 +111,6 @@ export default function ImpactDashboard() {
             </div>
           </div>
 
-          {/* ── Loading / Error States ─── */}
           {isLoading ? (
             <div className="impact-dashboard__loading" aria-live="polite" aria-busy="true">
               <div className="impact-dashboard__spinner" />
@@ -146,7 +125,7 @@ export default function ImpactDashboard() {
             </div>
           ) : (
             <>
-              {/* ── Summary Stat Cards ─── */}
+
               <div className="impact-dashboard__stat-grid">
                 <StatCard icon="📋" value={totalProblems} label="Total Problems Reported" accent="var(--color-lime)" />
                 <StatCard icon="✅" value={implementedCount} label="Problems Implemented" accent="#3aaf5c" />
@@ -156,9 +135,8 @@ export default function ImpactDashboard() {
                 <StatCard icon="🎯" value={`${resolutionRate}%`} label="Resolution Rate" accent="#f59e0b" />
               </div>
 
-              {/* ── Two Column Charts ─── */}
               <div className="impact-dashboard__charts-row">
-                {/* Category Chart */}
+
                 <div className="impact-dashboard__panel">
                   <h2 className="impact-dashboard__panel-title">Problems by Category</h2>
                   <p className="impact-dashboard__panel-sub">
@@ -167,7 +145,6 @@ export default function ImpactDashboard() {
                   <CategoryChart data={categoryData} />
                 </div>
 
-                {/* Status Breakdown */}
                 <div className="impact-dashboard__panel">
                   <h2 className="impact-dashboard__panel-title">Status Distribution</h2>
                   <p className="impact-dashboard__panel-sub">
@@ -175,7 +152,6 @@ export default function ImpactDashboard() {
                   </p>
                   <StatusBreakdown data={statusData} />
 
-                  {/* Resolution rate callout */}
                   <div className="impact-dashboard__resolution-callout">
                     <span className="impact-dashboard__resolution-value">{resolutionRate}%</span>
                     <span className="impact-dashboard__resolution-label">
@@ -186,7 +162,6 @@ export default function ImpactDashboard() {
                 </div>
               </div>
 
-              {/* ── City-Wise Activity Table ─── */}
               <div className="impact-dashboard__panel impact-dashboard__panel--city">
                 <h2 className="impact-dashboard__panel-title">City-Wise Problem Report</h2>
                 <p className="impact-dashboard__panel-sub">
@@ -225,7 +200,6 @@ export default function ImpactDashboard() {
                 </div>
               </div>
 
-              {/* ── Recent Activity ─── */}
               <div className="impact-dashboard__panel">
                 <h2 className="impact-dashboard__panel-title">Recent Community Activity</h2>
                 <p className="impact-dashboard__panel-sub">
@@ -235,7 +209,6 @@ export default function ImpactDashboard() {
                 <RecentActivity events={filteredActivity} maxItems={12} />
               </div>
 
-              {/* ── Bottom CTA ─── */}
               <div className="impact-dashboard__cta">
                 <div className="impact-dashboard__cta-inner">
                   <h2 className="impact-dashboard__cta-heading">Every report is a step forward.</h2>

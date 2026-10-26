@@ -1,12 +1,3 @@
-// useProblemsContext.jsx — Central state management for Problems, Solutions, and Moderation.
-//
-// Syllabus Alignment:
-// - Context API and State Architecture (Lectures 49-54)
-// - Global vs Local State management — votes, bookmarks, comments, activity all live here
-// - Asynchronous state simulation with loading and error states (Lectures 67-72)
-// - Persistent storage via useLocalStorage
-// - useCallback for stable references, immutable array updates (no direct mutation)
-
 import { createContext, useContext, useState, useCallback } from "react";
 import { problems as initialProblems } from "../data/problems";
 import { solutions as initialSolutions, getSolutionScore } from "../data/solutions";
@@ -16,7 +7,6 @@ import { useToast } from "./useToast";
 
 const ProblemContext = createContext(null);
 
-// ─── Seed comments into a flat map keyed by problemId ───────────────────────
 function buildSeedComments() {
   const map = {};
   Object.entries(seedComments).forEach(([pid, list]) => {
@@ -28,7 +18,6 @@ function buildSeedComments() {
 export function ProblemProvider({ children }) {
   const { addToast } = useToast();
 
-  // ── Problems & Solutions ────────────────────────────────────────────────────
   const [allProblems, setAllProblems] = useLocalStorage(
     "crowdsolve_all_problems",
     initialProblems
@@ -38,34 +27,26 @@ export function ProblemProvider({ children }) {
     initialSolutions
   );
 
-  // ── Community Engagement State ──────────────────────────────────────────────
-  // userVotes: { [problemId]: "up" | null }  — tracks which problems this session voted on
   const [userVotes, setUserVotes] = useLocalStorage("crowdsolve_user_votes", {});
 
-  // bookmarks: number[]  — array of bookmarked problem IDs
   const [bookmarks, setBookmarks] = useLocalStorage("crowdsolve_bookmarks", []);
 
-  // comments: { [problemId]: CommentObject[] }  — global comment store
   const [allComments, setAllComments] = useLocalStorage(
     "crowdsolve_comments",
     buildSeedComments()
   );
 
-  // activityLog: ActivityEvent[]  — recent user actions for Impact Dashboard
   const [activityLog, setActivityLog] = useLocalStorage("crowdsolve_activity", []);
 
-  // ── Async Loading / Error State ─────────────────────────────────────────────
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
 
-  // ── Internal helper: push a new activity event ──────────────────────────────
   const logActivity = useCallback((event) => {
     setActivityLog((prev) =>
       [{ ...event, id: Date.now(), timestamp: new Date().toISOString() }, ...prev].slice(0, 50)
     );
   }, [setActivityLog]);
 
-  // ── Problem CRUD ────────────────────────────────────────────────────────────
   const addProblem = useCallback((newProblem) => {
     setAllProblems((prev) => [newProblem, ...prev]);
     logActivity({ type: "problem_reported", label: `New problem reported: "${newProblem.title}"`, city: newProblem.city });
@@ -88,7 +69,6 @@ export function ProblemProvider({ children }) {
     addToast("Problem removed from platform", "warning");
   }, [setAllProblems, setAllSolutions, setBookmarks, addToast]);
 
-  // ── Voting (toggle, prevents double-vote via userVotes map) ─────────────────
   const voteProblem = useCallback((problemId, direction) => {
     setAllProblems((prev) =>
       prev.map((prob) => {
@@ -99,29 +79,27 @@ export function ProblemProvider({ children }) {
     );
   }, [setAllProblems]);
 
-  // Upvote toggle — the primary method used by ProblemCard & ProblemDetails
   const toggleUpvote = useCallback((problemId) => {
     const pid = Number(problemId);
     const hasVoted = userVotes[pid] === "up";
 
     if (hasVoted) {
-      // Remove vote
+
       setUserVotes((prev) => { const n = { ...prev }; delete n[pid]; return n; });
       voteProblem(pid, "down");
       logActivity({ type: "vote_removed", label: `Removed upvote from problem #${pid}`, problemId: pid });
       addToast("Upvote removed", "info");
     } else {
-      // Cast vote
+
       setUserVotes((prev) => ({ ...prev, [pid]: "up" }));
       voteProblem(pid, "up");
       logActivity({ type: "upvoted", label: `Upvoted a community problem`, problemId: pid });
       addToast("Problem upvoted! 👍", "success");
     }
 
-    return !hasVoted; // returns new voted state
+    return !hasVoted;
   }, [userVotes, setUserVotes, voteProblem, addToast, logActivity]);
 
-  // ── Bookmarks / Watchlist ───────────────────────────────────────────────────
   const toggleBookmark = useCallback((problemId) => {
     const pid = Number(problemId);
     const isBookmarked = bookmarks.includes(pid);
@@ -142,7 +120,6 @@ export function ProblemProvider({ children }) {
 
   const bookmarkedProblems = allProblems.filter((p) => bookmarks.includes(p.id));
 
-  // ── Comments ────────────────────────────────────────────────────────────────
   const getComments = useCallback((problemId) => {
     return allComments[Number(problemId)] || [];
   }, [allComments]);
@@ -164,13 +141,11 @@ export function ProblemProvider({ children }) {
     }));
   }, [setAllComments]);
 
-  // Total comment count across all problems (for dashboard stats)
   const totalCommentCount = Object.values(allComments).reduce(
     (sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0),
     0
   );
 
-  // ── Solutions ───────────────────────────────────────────────────────────────
   const addSolution = useCallback((newSolution) => {
     setAllSolutions((prev) => [newSolution, ...prev]);
     setAllProblems((prev) =>
@@ -193,7 +168,6 @@ export function ProblemProvider({ children }) {
     return [...solList].sort((a, b) => getSolutionScore(b) - getSolutionScore(a))[0];
   }, [allSolutions]);
 
-  // ── Async Refresh (Simulated) ───────────────────────────────────────────────
   const refreshData = useCallback(() => {
     setIsLoading(true);
     setApiError(null);
@@ -202,9 +176,8 @@ export function ProblemProvider({ children }) {
     }, 600);
   }, []);
 
-  // ── Context Value ───────────────────────────────────────────────────────────
   const value = {
-    // Problems & Solutions
+
     problems: allProblems,
     solutions: allSolutions,
     isLoading,
@@ -218,24 +191,20 @@ export function ProblemProvider({ children }) {
     getTopSolutionForProblem,
     refreshData,
 
-    // Community Engagement — Votes
     userVotes,
     toggleUpvote,
 
-    // Community Engagement — Bookmarks
     bookmarks,
     bookmarkedProblems,
     toggleBookmark,
     isBookmarked,
 
-    // Community Engagement — Comments
     allComments,
     getComments,
     addComment,
     deleteComment,
     totalCommentCount,
 
-    // Activity Log
     activityLog,
   };
 

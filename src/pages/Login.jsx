@@ -1,10 +1,3 @@
-// Login.jsx — Authentication Page.
-//
-// Syllabus Alignment:
-// - Form Handling in React: Form validation strategies & reusable FormField (Lectures 55-60)
-// - Controlled inputs & live error states
-// - Route navigation & state redirect (Lectures 37-48)
-
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
@@ -30,7 +23,7 @@ export default function Login() {
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear field-specific error as user types
+
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -80,7 +73,6 @@ export default function Login() {
     }, 400);
   }
 
-  // Quick 1-click test credentials for evaluation examiners
   function handleQuickDemo(type) {
     demoLogin(type);
     addToast(`Logged in as ${type === "admin" ? "Admin Moderator" : "Citizen (Ravi)"}`, "success");
@@ -98,7 +90,6 @@ export default function Login() {
             Sign in to track reported problems, propose community fixes, and earn karma.
           </p>
 
-          {/* Quick Demo Logins for Examiner */}
           <div className="auth-page__demo-box">
             <p className="auth-page__demo-title">⚡ Quick Examiner Demo Access:</p>
             <div className="auth-page__demo-buttons">

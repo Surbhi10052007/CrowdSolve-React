@@ -1,15 +1,5 @@
-/* =============================================================
-   CrowdSolve — Global Styles & Design Tokens
-   =============================================================
-   All CSS variables (colours, fonts, spacing) live here so every
-   component can reuse the same palette.  Utility classes like
-   .container, .section, .btn, and form-field styles are also
-   defined here to avoid duplication.
-   ============================================================= */
-
-/* ─── Design Tokens ─── */
 :root {
-  /* colours */
+
   --color-dark:        #14140f;
   --color-dark-2:      #1c1c16;
   --color-cream:       #f4f1e6;
@@ -27,24 +17,19 @@
   --color-border-dark:  rgba(244, 241, 230, 0.16);
   --color-border-light: rgba(20, 20, 15, 0.14);
 
-  /* typography */
   --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --font-body:    "Inter", "Helvetica Neue", Arial, sans-serif;
 
-  /* layout */
   --max-width:    1320px;
   --section-pad:  clamp(3rem, 8vw, 7rem);
 
-  /* shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
 
-  /* animation */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ─── Reset ─── */
 *,
 *::before,
 *::after {
@@ -96,7 +81,6 @@ ul, ol {
   padding: 0;
 }
 
-/* ─── Focus States (Accessibility) ─── */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -106,7 +90,6 @@ select:focus-visible {
   outline-offset: 2px;
 }
 
-/* ─── Layout Helpers ─── */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -127,7 +110,6 @@ select:focus-visible {
   color: var(--color-text-dark);
 }
 
-/* ─── Eyebrow Label ─── */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -149,7 +131,6 @@ select:focus-visible {
   display: inline-block;
 }
 
-/* ─── Buttons ─── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -225,7 +206,6 @@ select:focus-visible {
   cursor: not-allowed;
 }
 
-/* ─── Status Pills ─── */
 .status-pill {
   display: inline-block;
   padding: 0.25rem 0.65rem;
@@ -256,7 +236,6 @@ select:focus-visible {
   color: #3aaf5c;
 }
 
-/* ─── Form Fields ─── */
 .field {
   display: flex;
   flex-direction: column;
@@ -305,7 +284,6 @@ select:focus-visible {
   border-color: #b3411f;
 }
 
-/* ─── Accessibility Helpers ─── */
 .skip-link {
   position: absolute;
   left: -999px;
@@ -334,7 +312,6 @@ select:focus-visible {
   border: 0;
 }
 
-/* ─── Fade-in Animation ─── */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -350,14 +327,12 @@ select:focus-visible {
   animation: fadeInUp 0.5s var(--ease-out) both;
 }
 
-/* ─── Mobile Overrides ─── */
 @media (max-width: 640px) {
   :root {
     --section-pad: 3rem;
   }
 }
 
-/* ─── Filter Chip (shared by Problems & ImpactDashboard) ─── */
 .filter-chip {
   padding: 0.4rem 0.85rem;
   font-size: 0.8rem;
@@ -382,4 +357,3 @@ select:focus-visible {
   border-color: var(--color-dark);
   box-shadow: 2px 2px 0px var(--color-lime-dim);
 }
-

@@ -1,13 +1,3 @@
-// FormField.jsx — Reusable form control wrapper with validation strategies.
-//
-// Syllabus Alignment: Lectures 55-60 (Form handling, validation strategies, reusable input components)
-// Features:
-// - Dynamic error states with icon
-// - Required asterisk indicator
-// - Helper/hint text
-// - Optional live character counter (current / max)
-// - Accessible ARIA attributes
-
 import "./FormField.css";
 
 export default function FormField({
